@@ -10,7 +10,18 @@
 	<link rel='stylesheet' href='/global.css'>
 	<link rel='stylesheet' href='/build/bundle.css'>
 
+	<!-- Load the Svelte App. -->
 	<script defer src='/build/bundle.js'></script>
+
+	<!-- Load the go was helper javascript module, and the WASM module into
+	     its relatively quiescent mode. -->
+	<script src="wasm/wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+    </script>
 </head>
 
 <!-- We need a body element because the compiled Svelte App targets it. -->
