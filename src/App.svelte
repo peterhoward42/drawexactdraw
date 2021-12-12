@@ -4,7 +4,7 @@
 
 <div class="app">
 	<HeaderControls/>
-	<div>Second thing</div>
+	<div class="drawingzone" id="drawingzone"/>
 </div>
 
 <style>
@@ -12,5 +12,11 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 0px;
+		align-items: stretch;
+	}
+
+	.drawingzone {
+		height: 600px;
+		background-color: red;
 	}
 </style>
