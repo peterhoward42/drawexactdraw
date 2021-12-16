@@ -2,21 +2,9 @@
 	import HeaderControls from "./cpts/HeaderControls.svelte"
 </script>
 
-<div class="app">
-	<HeaderControls/>
-	<div class="drawingzone" id="drawingzone"/>
-</div>
+<HeaderControls/>
+<div id="drawingzone" style="height: 400px;"></div>
+<div style="background-color:#BBB; height: 75px;"></div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		row-gap: 0px;
-		align-items: stretch;
-	}
-
-	.drawingzone {
-		height: 600px;
-		background-color: red;
-	}
 </style>
