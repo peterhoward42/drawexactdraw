@@ -1,10 +1,25 @@
 <script>
-	import ToolBar from "./cpts/toolbar/ToolBar.svelte"
+	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
+	import SideBarLeft from "./cpts/ephemeral/Ephemeral.svelte"
 </script>
 
-<ToolBar/>
-<div id="drawingzone" style="height: 400px;"></div>
-<div style="background-color:#BBB; height: 75px;"></div>
+<ToolBar />
+<div class="maincontent">
+	<div>
+		<SideBarLeft/>
+	</div>
+	<div class="drawingzone" id="drawingzone" />
+</div>
+
+<div style="background-color:#BBB; height: 75px;" />
 
 <style>
+	.maincontent {
+		display: flex;
+		flex-direction: row;
+	}
+	.drawingzone {
+		height: 400px;
+		flex-grow: 1;
+	}
 </style>
