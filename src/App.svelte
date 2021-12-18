@@ -1,16 +1,12 @@
 <script>
+	import { interpretMessage } from "./messageInterpreter.js"
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
-	import SideBarLeft from "./cpts/ephemeral/Ephemeral.svelte";
+	import SideBarLeft from "./cpts/sidebar/SideBar.svelte";
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
-	window.receiveMsgFromWasm = function(topic, value) {
-		console.log(
-			"XXXX receiveMsgFromWasm() fired with: ",
-			topic,
-			", ",
-			value
-		);
+	window.receiveMsgFromWasm = function(topic, payload) {
+		interpretMessage(topic, payload)
 	}
 </script>
 
