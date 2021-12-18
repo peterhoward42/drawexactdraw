@@ -1,12 +1,23 @@
 <script>
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
-	import SideBarLeft from "./cpts/ephemeral/Ephemeral.svelte"
+	import SideBarLeft from "./cpts/ephemeral/Ephemeral.svelte";
+
+	// Put a function into the global namespace, that WASM can call in order
+	// to send messages to javascript.
+	window.receiveMsgFromWasm = function(topic, value) {
+		console.log(
+			"XXXX receiveMsgFromWasm() fired with: ",
+			topic,
+			", ",
+			value
+		);
+	}
 </script>
 
 <ToolBar />
 <div class="maincontent">
 	<div>
-		<SideBarLeft/>
+		<SideBarLeft />
 	</div>
 	<div class="drawingzone" id="drawingzone" />
 </div>
