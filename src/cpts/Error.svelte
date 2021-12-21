@@ -2,9 +2,12 @@
     import { error } from "./errorstore.js"
 </script>
 
-<div>
+<div class="error">
     { $error }
 </div>
 
 <style>
+    .error {
+        color: red;
+    }
 </style>
