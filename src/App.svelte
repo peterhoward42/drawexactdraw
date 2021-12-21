@@ -10,6 +10,10 @@
 		interpretMessage(topic, payload);
 	};
 
+	// Tell WASM whenever that the drawingzone DIV may have changed in size and
+	// or position, when the window changes size.
+	window.addEventListener('resize', () => msgBusPubString("ui:drawingareachanged", null));
+
 </script>
 
 <div class="page">
