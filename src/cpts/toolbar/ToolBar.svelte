@@ -14,6 +14,8 @@
     .toolbar {
         display: flex;
         flex-direction: row;
+        align-items: center;
         column-gap: 5px;
+        background-color: #DDD;
     }
 </style>

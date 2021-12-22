@@ -11,9 +11,13 @@
     }
 </script>
 
-<div>
-    <input value={$initialRayLength} on:keyup={handleKeyUp}>
-</div>
+<input class="input" value={$initialRayLength} on:keyup={handleKeyUp}>
 
 <style>
+    .input {
+        padding: 3px;
+        border: 0px;
+        margin: 0px;
+        width: 100px;
+    }
 </style>
