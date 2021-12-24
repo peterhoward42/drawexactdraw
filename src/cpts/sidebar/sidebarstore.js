@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
-export const customAngle = writable(42.0)
+// The angle to initialise the custom angle input control with - float.
+export const initialCustomAngle = writable(0)
 
 // This should be a list of the Svelte components that you want to
 // be displayed in the side bar - in order.

@@ -1,22 +1,31 @@
 <script>
-    import { customAngle } from "./sidebarstore.js";
+    import { initialCustomAngle } from "./sidebarstore.js";
     
     function handleCustomAngle(evt) {
-        console.log("XXXX handleCustomAngle received: ", evt.target.value)
+        msgBusPubString("ui:customangle", evt.target.value)
     }
 
 </script>
 
-<input class="input" value={$customAngle} on:keyup={handleCustomAngle}>
+<div class="customangle">
+    <div class="prompt">
+        Custom Angle &#176; 
+    </div>
+    <input class="input" value={$initialCustomAngle} on:keyup={handleCustomAngle}>
+</div>
 
 <style>
+    .customangle {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background-color: #AAA;
+        padding: 7px;
+    }
     .input {
         font-size: 9pt;
-        padding: 3px;
-        border: thin solid #DDD;
-        background-color: #EEE;
-        margin: 0px;
-        margin-left: 3px;
-        width: 100px;
+    }
+    .prompt {
+        font-size: 9pt;
     }
 </style>
