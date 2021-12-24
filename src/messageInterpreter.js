@@ -3,14 +3,14 @@ import { tick } from 'svelte';
 import { initialRayLength, readout } from "./cpts/toolbar/toolbarstore.js";
 import { error } from "./cpts/errorstore.js";
 import { processChangingRayMode } from './cpts/sidebar/controller.js'
-import { initialCustomAngle } from './cpts/sidebar/sidebarstore.js';
+import { CustomAngle } from './cpts/sidebar/sidebarstore.js';
 
 export async function interpretMessage(topic, payload) {
 
     // Maintain the cases in alphabetical order.
     switch (topic) {
         case "customangle":
-            initialCustomAngle.set(payload)
+            CustomAngle.set(payload)
             break;
         case "error":
             error.set(payload);

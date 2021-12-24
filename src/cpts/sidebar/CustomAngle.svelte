@@ -1,5 +1,5 @@
 <script>
-    import { initialCustomAngle } from "./sidebarstore.js";
+    import { CustomAngle } from "./sidebarstore.js";
     
     function handleCustomAngle(evt) {
         msgBusPubString("ui:customangle", evt.target.value)
@@ -11,7 +11,7 @@
     <div class="prompt">
         Custom Angle &#176; 
     </div>
-    <input class="input" value={$initialCustomAngle} on:keyup={handleCustomAngle}>
+    <input class="input" value={$CustomAngle} on:keyup={handleCustomAngle}>
 </div>
 
 <style>
