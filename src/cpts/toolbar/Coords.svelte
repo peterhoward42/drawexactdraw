@@ -8,6 +8,7 @@
 
 <style>
     .readout {
+        color: white;
         font: 9pt monospace, "Courier New";
         width: 350px;
     }

@@ -4,6 +4,7 @@ import { initialRayLength, readout } from "./cpts/toolbar/toolbarstore.js";
 import { error } from "./cpts/errorstore.js";
 
 export async function interpretMessage(topic, payload) {
+
     // Maintain the cases in alphabetical order.
     switch (topic) {
         case "error":
@@ -17,6 +18,9 @@ export async function interpretMessage(topic, payload) {
             break;
         case "raylength":
             initialRayLength.set(payload);
+            break;
+        case "raymode":
+            console.log("XXXX ui received changed ray mode: ", payload)
             break;
         case "readout":
             readout.set(payload)

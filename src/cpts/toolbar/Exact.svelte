@@ -15,9 +15,12 @@
 
 <style>
     .input {
+        font-size: 9pt;
         padding: 3px;
-        border: 0px;
+        border: thin solid #DDD;
+        background-color: #EEE;
         margin: 0px;
+        margin-left: 3px;
         width: 100px;
     }
 </style>

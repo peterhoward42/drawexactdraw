@@ -16,6 +16,6 @@
         flex-direction: row;
         align-items: center;
         column-gap: 5px;
-        background-color: #DDD;
+        background-color: #666;
     }
 </style>
