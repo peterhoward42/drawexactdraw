@@ -9,7 +9,7 @@
 
 <div class="customangle">
     <div class="prompt">
-        Custom Angle &#176; 
+        Angle &#176; 
     </div>
     <input class="input" value={$CustomAngle} on:keyup={handleCustomAngle}>
 </div>
