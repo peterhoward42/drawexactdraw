@@ -17,4 +17,7 @@
     .sun:hover {
         color: #0AA;
     }
+    .sun:active:hover {
+        color: #0EE;
+    }
 </style>
