@@ -1,5 +1,5 @@
 <script>
-    import { customAngle } from "./store.js";
+    import { customAngle } from "./sidebarstore.js";
     
     function handleCustomAngle(evt) {
         console.log("XXXX handleCustomAngle received: ", evt.target.value)

@@ -1,5 +1,5 @@
 <script>
-    import { sideBarComponents } from './store.js'
+    import { sideBarComponents } from './sidebarstore.js'
 </script>
 
 <div class="sidebar">

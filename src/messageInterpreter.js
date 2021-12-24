@@ -2,6 +2,7 @@ import { tick } from 'svelte';
 
 import { initialRayLength, readout } from "./cpts/toolbar/toolbarstore.js";
 import { error } from "./cpts/errorstore.js";
+import { processChangingRayMode } from './cpts/sidebar/controller.js'
 
 export async function interpretMessage(topic, payload) {
 
@@ -20,7 +21,7 @@ export async function interpretMessage(topic, payload) {
             initialRayLength.set(payload);
             break;
         case "raymode":
-            console.log("XXXX ui received changed ray mode: ", payload)
+            processChangingRayMode(payload)
             break;
         case "readout":
             readout.set(payload)
