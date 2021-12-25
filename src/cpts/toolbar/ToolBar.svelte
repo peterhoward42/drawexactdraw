@@ -6,8 +6,8 @@
 
 <div class=toolbar>
     <Exact/>
-    <Coords/>
     <RayMode/>
+    <Coords/>
 </div>
 
 <style>

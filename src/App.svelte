@@ -20,7 +20,7 @@
 	<ToolBar />
 	<Error />
 	<div class="maincontent">
-		<div>
+		<div class="leftbar">
 			<SideBarLeft />
 		</div>
 		<div class="drawingzone" id="drawingzone" />
@@ -29,7 +29,9 @@
 </div>
 
 <style>
-	.page {
+	.leftbar {
+		background-color: red;
+		flex-basis: 100px;
 	}
 	.maincontent {
 		display: flex;
