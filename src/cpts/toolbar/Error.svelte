@@ -1,5 +1,5 @@
 <script>
-    import { error } from "./errorstore.js"
+    import { error } from "./toolbarstore.js"
 </script>
 
 <div class="error">
