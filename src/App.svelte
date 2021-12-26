@@ -4,6 +4,7 @@
 	import { interpretMessage } from "./messageInterpreter.js";
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBarLeft from "./cpts/sidebar/SideBar.svelte";
+	import Error from "./cpts/shared/Error.svelte"
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
@@ -41,6 +42,9 @@
 		height: 400px;
 		flex-grow: 1;
 	}
+	.errormodalcontainer {
+		color: blue;
+	}
 </style>
 
 <div class="page">
@@ -52,4 +56,7 @@
 		<div class="drawingzone" id="drawingzone" />
 	</div>
 	<div style="background-color:#BBB; height: 75px;" />
+	<div class="errormodalcontainer">
+		<Error/>
+	</div>
 </div>
