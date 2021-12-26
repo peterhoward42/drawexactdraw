@@ -8,6 +8,7 @@
 
 <style>
     .error {
+        font-size:  9pt;
         color: red;
     }
 </style>

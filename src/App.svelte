@@ -11,14 +11,17 @@
 		interpretMessage(topic, payload);
 	};
 
+	// Once the App is mounted and WASM has exposed is callable functions,
+	// AND Svelte has tick()ed, we need to register
+	// a window resize handler, and send the inaugral "ui:drawingareachanged"
+	// message to WASM.
 	onMount(async () => {
 		let myInterval = setInterval(async function() {
 			if (typeof msgBusPubString == 'function') {
 				clearInterval(myInterval);
 				await tick();
-				const drawingAreaChangedTopic = "ui:drawingareachanged";
-				window.addEventListener("resize", () => msgBusPubString(drawingAreaChangedTopic), "");
-				msgBusPubString(drawingAreaChangedTopic, "")
+				window.addEventListener("resize", () => msgBusPubString("ui:drawingareachanged", ""));
+				msgBusPubString("ui:drawingareachanged", "")
 			}			
 		}, 100)
 	});

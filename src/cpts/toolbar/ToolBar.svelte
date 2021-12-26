@@ -18,6 +18,6 @@
         flex-direction: row;
         align-items: center;
         column-gap: 5px;
-        background-color: #666;
+        background-color: #222;
     }
 </style>
