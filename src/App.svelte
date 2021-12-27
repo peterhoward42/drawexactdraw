@@ -4,7 +4,7 @@
 	import { interpretMessage } from "./messageInterpreter.js";
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBarLeft from "./cpts/sidebar/SideBar.svelte";
-	import Error from "./cpts/shared/Error.svelte"
+	import ErrorModal from "./cpts/error/ErrorModal.svelte";
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
@@ -17,16 +17,17 @@
 	// a window resize handler, and send the inaugral "ui:drawingareachanged"
 	// message to WASM.
 	onMount(async () => {
-		let myInterval = setInterval(async function() {
-			if (typeof msgBusPubString == 'function') {
+		let myInterval = setInterval(async function () {
+			if (typeof msgBusPubString == "function") {
 				clearInterval(myInterval);
 				await tick();
-				window.addEventListener("resize", () => msgBusPubString("ui:drawingareachanged", ""));
-				msgBusPubString("ui:drawingareachanged", "")
-			}			
-		}, 100)
+				window.addEventListener("resize", () =>
+					msgBusPubString("ui:drawingareachanged", "")
+				);
+				msgBusPubString("ui:drawingareachanged", "");
+			}
+		}, 100);
 	});
-
 </script>
 
 <style>
@@ -42,9 +43,6 @@
 		height: 400px;
 		flex-grow: 1;
 	}
-	.errormodalcontainer {
-		color: blue;
-	}
 </style>
 
 <div class="page">
@@ -56,7 +54,7 @@
 		<div class="drawingzone" id="drawingzone" />
 	</div>
 	<div style="background-color:#BBB; height: 75px;" />
-	<div class="errormodalcontainer">
-		<Error/>
-	</div>
+
+	<!-- Insert the error Modal into the DOM, (its CSS hides itself) -->
+	<ErrorModal />
 </div>

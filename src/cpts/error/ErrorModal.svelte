@@ -1,4 +1,5 @@
-<script>
+<script>   
+    import { errorMessage } from "./errorstore.js"
 </script>
 
 <style>
@@ -6,12 +7,14 @@
 
 <div id="errormodalcpt" class="w3-modal">
     <div class="w3-modal-content">
-        <div class="w3-container">
+        <header class="w3-container w3-teal">
             <span
                 onclick="document.getElementById('errormodalcpt').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>
-            <p>Some text in the Modal..</p>
-            <p>Some text in the Modal..</p>
+            <h3>Error</h3>
+        </header>
+        <div class="w3-container">
+            <p> { $errorMessage } </p>
         </div>
     </div>
 </div>

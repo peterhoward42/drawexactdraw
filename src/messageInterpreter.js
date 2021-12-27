@@ -1,9 +1,8 @@
 import { tick } from 'svelte';
 
 import { initialRayLength, readout } from "./cpts/toolbar/toolbarstore.js";
-import { error } from "./cpts/toolbar/toolbarstore.js";
 import { processChangingRayMode } from './cpts/sidebar/controller.js'
-import { processArrivingError } from './cpts/shared/errorcontroller.js'
+import { processArrivingError } from './cpts/error/errorcontroller.js'
 import { CustomAngle } from './cpts/sidebar/sidebarstore.js';
 
 export async function interpretMessage(topic, payload) {
@@ -14,7 +13,7 @@ export async function interpretMessage(topic, payload) {
             CustomAngle.set(payload)
             break;
         case "error":
-            processArrivingError();
+            processArrivingError(payload);
             break;
         case "raylength":
             initialRayLength.set(payload);
