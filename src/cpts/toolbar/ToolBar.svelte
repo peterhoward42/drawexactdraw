@@ -1,12 +1,10 @@
 <script>
-    import Exact from "./Exact.svelte"
     import Coords from "./Coords.svelte"
-    import RayMode from "./Raymode.svelte"
+    import Ray from "./Ray.svelte"
 </script>
 
 <div class=toolbar>
-    <Exact/>
-    <RayMode/>
+    <Ray/>
     <Coords/>
 </div>
 
@@ -17,5 +15,6 @@
         align-items: center;
         column-gap: 5px;
         background-color: #222;
+        padding: 5px;
     }
 </style>

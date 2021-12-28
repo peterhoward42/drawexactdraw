@@ -31,10 +31,6 @@
 </script>
 
 <style>
-	.leftbar {
-		background-color: red;
-		flex-basis: 100px;
-	}
 	.maincontent {
 		display: flex;
 		flex-direction: row;
@@ -42,15 +38,13 @@
 	.drawingzone {
 		height: 400px;
 		flex-grow: 1;
+		outline: none;
 	}
 </style>
 
 <div class="page">
 	<ToolBar />
 	<div class="maincontent">
-		<div class="leftbar">
-			<SideBarLeft />
-		</div>
 		<div class="drawingzone" id="drawingzone" />
 	</div>
 	<div style="background-color:#BBB; height: 75px;" />
