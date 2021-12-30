@@ -23,14 +23,14 @@
         padding-left: 3px;
         width: 70px;
         background-color: #333;
-        color: #BBB;
+        color: aqua;
 
     }
     .mode-button {
         font-size: 20px;
         padding: 0px 5px 0px 5px;
         background-color: #333;
-        color: #BBB;
+        color: aqua;
         border: thin solid #444;
     }
   

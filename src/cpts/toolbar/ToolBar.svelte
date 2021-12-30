@@ -1,20 +1,20 @@
 <script>
-    import Coords from "./Coords.svelte"
+    import CoordGrid from "./CoordGrid.svelte"
     import Ray from "./Ray.svelte"
 </script>
 
 <div class=toolbar>
     <Ray/>
-    <Coords/>
+    <CoordGrid/>
 </div>
 
 <style>
     .toolbar {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        column-gap: 5px;
+        align-items: stretch;
+        column-gap: 7px;
         background-color: #222;
-        padding: 5px;
+        padding: 3px;
     }
 </style>
