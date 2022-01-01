@@ -1,5 +1,38 @@
 <script>
-    import { rayLength } from "./toolbarstore.js";
+    import { rayLength, rayMode, customAngle } from "./toolbarstore.js";
+
+    // We use a local variable to specify what the Exact Input box should
+    // render, so that we can multplex the Input for different purposes,
+    // depending on circumstances.
+    let valueForExactInputBox = 42;
+    let lastKnownRayLength;
+    let lastKnownCustomAngle;
+
+    rayLength.subscribe(handleStoredRayLengthChanged);
+    rayMode.subscribe(handleStoredRayModeChanged);
+    customAngle.subscribe(handleStoredCustomAngleChanged)
+
+    // When the ray length gets changed in the store, that tells us that
+    // we should be presenting that value in the Input box.
+    function handleStoredRayLengthChanged(newRayLength) {
+        lastKnownRayLength = newRayLength
+        valueForExactInputBox = newRayLength;
+    }
+
+    function handleStoredCustomAngleChanged(newCustomAngle) {
+        lastKnownCustomAngle = newCustomAngle
+    }
+
+    // When the ray mode changes we refresh the Exact Input box to the last
+    // known good value so that in the special case of it being "customangle", we
+    // can re-purpose the input to let the user edit the custom angle.
+    function handleStoredRayModeChanged(newRayMode) {
+        if (newRayMode == "customangle") {
+            valueForExactInputBox = lastKnownCustomAngle
+        } else {
+            valueForExactInputBox = lastKnownRayLength
+        }
+    }
 
     function handleExactInputValueChanged(evt) {
         msgBusPubString("ui:exactinput", evt.target.value);
@@ -12,7 +45,7 @@
 <div class="raycontrols">
     <input
         class="input"
-        value={$rayLength}
+        value={valueForExactInputBox}
         on:keyup={handleExactInputValueChanged}
     />
     <div
