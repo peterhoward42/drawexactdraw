@@ -18,7 +18,6 @@ export async function interpretMessage(topic, payload) {
             rayLength.set(payload);
             break;
         case "raymode":
-            console.log("XXXX interpreter setting rayMode to: ", payload)
             rayMode.set(payload)
             break;
         case "readout":
