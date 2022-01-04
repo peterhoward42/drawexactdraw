@@ -93,13 +93,13 @@
         padding-left: 3px;
         width: 70px;
         background-color: #333;
-        color: aqua;
+        color: yellow;
     }
     .mode-button {
         font-size: 20px;
         padding: 0px 5px 0px 5px;
         background-color: #333;
-        color: aqua;
+        color: yellow;
         border: thin solid #444;
     }
 </style>
