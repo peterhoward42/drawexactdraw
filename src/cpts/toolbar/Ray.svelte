@@ -98,13 +98,13 @@
         padding-left: 3px;
         width: 70px;
         background-color: #333;
-        color: yellow;
+        color: cornflowerblue;
     }
     .mode-button {
         font-size: 20px;
         padding: 0px 5px 0px 5px;
         background-color: #333;
-        color: yellow;
+        color: cornflowerblue;
         border: thin solid #444;
     }
 </style>
