@@ -1,5 +1,6 @@
 <script>
     import { rayLength, rayMode, customAngle } from "./toolbarstore.js";
+    import tooltip from "../common/tooltip.js";
 
     // We use a local variable to specify what the Exact Input box should
     // render, so that we can multplex what the Input box shows depending on the
@@ -62,6 +63,8 @@
     <input
         class="input"
         value={valueForExactInputBox}
+        use:tooltip
+        title="Change Ray Length"
         on:keyup={handleExactInputValueChanged}
     />
 
@@ -70,6 +73,8 @@
     cue for the user about what they are editing. -->
     <div
         class="mode-button w3-button w3-ripple"
+        use:tooltip
+        title="Change Ray Pattern"
         on:click={emitIncrementRayMode}
     >
     {#if currentRayMode === "customangle"}
