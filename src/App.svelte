@@ -31,12 +31,12 @@
 </script>
 
 <style>
-	.maincontent {
+	.page {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
+		height: 100vh;
 	}
 	.drawingzone {
-		height: 400px;
 		flex-grow: 1;
 		outline: none;
 	}
@@ -44,9 +44,7 @@
 
 <div class="page">
 	<ToolBar />
-	<div class="maincontent">
-		<div class="drawingzone" id="drawingzone" />
-	</div>
+	<div class="drawingzone" id="drawingzone" />
 	<div style="background-color:#BBB; height: 75px;" />
 
 	<!-- Insert the error Modal into the DOM, (its CSS hides itself) -->
