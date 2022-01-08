@@ -64,7 +64,7 @@
         class="input"
         value={valueForExactInputBox}
         use:tooltip
-        title="Edit Ray Length"
+        title="Change Ray Length"
         on:keyup={handleExactInputValueChanged}
     />
 
