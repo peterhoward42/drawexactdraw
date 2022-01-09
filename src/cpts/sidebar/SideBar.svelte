@@ -1,17 +1,13 @@
 <script>
-    import { sideBarComponents } from './sidebarstore.js'
+    import { sideBarComponent } from "./sidebarstore.js";
 </script>
 
-<div class="sidebar">
-    {#each $sideBarComponents as cpt}
-        <svelte:component this={cpt} />
-    {/each}
+<div class=sidebar>
+    <svelte:component this={$sideBarComponent} />
 </div>
 
 <style>
     .sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        background-color: #222;
     }
 </style>
