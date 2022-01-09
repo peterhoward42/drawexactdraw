@@ -1,5 +1,6 @@
 <script>
 	import { onMount, tick } from "svelte";
+	import { sideBarComponent } from "./cpts/sidebar/sidebarstore";
 
 	import { interpretMessage } from "./messageInterpreter.js";
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
@@ -33,7 +34,9 @@
 <div class="page">
 	<ToolBar />
 	<div class="main-content">
-		<SideBar/>
+		{#if $sideBarComponent}
+			<SideBar />
+		{/if}
 		<div class="drawingzone" id="drawingzone" />
 	</div>
 	<div style="background-color:#BBB; height: 75px;" />
@@ -48,7 +51,7 @@
 		flex-direction: column;
 		height: 100vh;
 	}
-	.main-content{
+	.main-content {
 		display: flex;
 		flex-grow: 1;
 		background-color: black;
