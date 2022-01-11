@@ -6,6 +6,7 @@
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBar from "./cpts/sidebar/SideBar.svelte";
 	import ErrorModal from "./cpts/error/ErrorModal.svelte";
+	import { alertWASMDrawingAreaChanged } from "./services/drawingareachanged.js"
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
@@ -23,9 +24,9 @@
 				clearInterval(myInterval);
 				await tick();
 				window.addEventListener("resize", () =>
-					msgBusPubString("ui:drawingareachanged", "")
+					alertWASMDrawingAreaChanged()
 				);
-				msgBusPubString("ui:drawingareachanged", "");
+				alertWASMDrawingAreaChanged();
 
 				// We need to observe any change to the sideBarComponent so we can
 				// alert WASM that the drawing area likely changed size. This includes
@@ -37,7 +38,7 @@
 				// means the subscribe handler needs to be async.
 				sideBarComponent.subscribe(async value => {
 					await tick();
-					msgBusPubString("ui:drawingareachanged", "");
+					alertWASMDrawingAreaChanged();
 				});
 			}
 		}, 100);
