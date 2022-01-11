@@ -26,6 +26,19 @@
 					msgBusPubString("ui:drawingareachanged", "")
 				);
 				msgBusPubString("ui:drawingareachanged", "");
+
+				// We need to observe any change to the sideBarComponent so we can
+				// alert WASM that the drawing area likely changed size. This includes
+				// when the side bar is dismissed.
+				// 
+				// However we need to wait until after Svelte has updated the
+				// layout to include or exclude the side bar before sending
+				// the message. Which means we have await Svelte's tick, which
+				// means the subscribe handler needs to be async.
+				sideBarComponent.subscribe(async value => {
+					await tick();
+					msgBusPubString("ui:drawingareachanged", "");
+				});
 			}
 		}, 100);
 	});

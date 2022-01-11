@@ -1,9 +1,9 @@
 export {bringUpLineStyleMenu}
-import { lineStyle } from "./propertiesstore"
+import { currentLineStyleJson } from "./propertiesstore"
 import { sideBarComponent } from "../sidebar/sidebarstore.js"
 import LineStyleMenu from "./LineStyleMenu.svelte"
 
 function bringUpLineStyleMenu(payload) {
-    lineStyle.set(payload)
+    currentLineStyleJson.set(payload)
     sideBarComponent.set(LineStyleMenu)
 }
