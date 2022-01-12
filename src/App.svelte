@@ -6,7 +6,9 @@
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBar from "./cpts/sidebar/SideBar.svelte";
 	import ErrorModal from "./cpts/error/ErrorModal.svelte";
-	import { alertWASMDrawingAreaChanged } from "./services/drawingareachanged.js"
+
+	import { makeOnMountHandler } from "./services/makeonmounthandler.js"
+
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
@@ -14,38 +16,9 @@
 
 	// Register an async function to handle the initialization steps that
 	// can only be done after this component is mounted to the DOM.
-	registerOnMountHandler(sideBarComponent);
+	let onMountHandler = makeOnMountHandler(sideBarComponent, tick)
+	onMount(onMountHandler)
 
-	// registerOnMountHandler registers an async function to handle the
-	// initialization steps that can only be done after this component is
-	// mounted to the DOM.
-	function registerOnMountHandler(sideBarComponent) {
-		onMount(async () => {
-		let myInterval = setInterval(async function () {
-			if (typeof msgBusPubString == "function") {
-				clearInterval(myInterval);
-				await tick();
-				window.addEventListener("resize", () =>
-					alertWASMDrawingAreaChanged()
-				);
-				alertWASMDrawingAreaChanged();
-
-				// We need to observe any change to the sideBarComponent so we can
-				// alert WASM that the drawing area likely changed size. This includes
-				// when the side bar is dismissed.
-				// 
-				// However we need to wait until after Svelte has updated the
-				// layout to include or exclude the side bar before sending
-				// the message. Which means we have await Svelte's tick, which
-				// means the subscribe handler needs to be async.
-				sideBarComponent.subscribe(async value => {
-					await tick();
-					alertWASMDrawingAreaChanged();
-				});
-			}
-		}, 100);
-	});
-	}
 </script>
 
 <div class="page">
