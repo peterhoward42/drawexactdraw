@@ -1,3 +1,7 @@
+<script>
+    import { currentLineStyle } from "./propertiesstore";
+</script>
+
 <div>
-    hello world
+    hello {JSON.stringify($currentLineStyle)}
 </div>
