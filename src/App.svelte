@@ -10,15 +10,17 @@
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
-	window.receiveMsgFromWasm = function (topic, payload) {
-		interpretMessage(topic, payload);
-	};
+	window.receiveMsgFromWasm = interpretMessage;
 
-	// Once the App is mounted and WASM has exposed is callable functions,
-	// AND Svelte has tick()ed, we need to register
-	// a window resize handler, and send the inaugral "ui:drawingareachanged"
-	// message to WASM.
-	onMount(async () => {
+	// Register an async function to handle the initialization steps that
+	// can only be done after this component is mounted to the DOM.
+	registerOnMountHandler(sideBarComponent);
+
+	// registerOnMountHandler registers an async function to handle the
+	// initialization steps that can only be done after this component is
+	// mounted to the DOM.
+	function registerOnMountHandler(sideBarComponent) {
+		onMount(async () => {
 		let myInterval = setInterval(async function () {
 			if (typeof msgBusPubString == "function") {
 				clearInterval(myInterval);
@@ -43,6 +45,7 @@
 			}
 		}, 100);
 	});
+	}
 </script>
 
 <div class="page">
