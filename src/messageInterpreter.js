@@ -25,7 +25,7 @@ export async function interpretMessage(topic, payload) {
             rayMode.set(payload)
             break;
         case "readout":
-            readout.set(payload)
+            readout.set(JSON.parse(payload))
             break;
     }
 }

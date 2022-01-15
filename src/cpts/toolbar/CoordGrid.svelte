@@ -1,34 +1,13 @@
 <script>
     import SingleCoord from "./SingleCoord.svelte";
     import { readout } from "./toolbarstore";
-
-    let xValue;
-    let yValue;
-    let rValue;
-    let thetaValue;
-
-    function handleReadoutChanged(newReadoutObj) {
-        if (newReadoutObj == null || newReadoutObj["x"] == undefined) {
-            xValue = "";
-            yValue = "";
-            rValue = "";
-            thetaValue = "";
-        } else {
-            xValue = newReadoutObj["x"];
-            yValue = newReadoutObj["y"];
-            rValue = newReadoutObj["r"];
-            thetaValue = newReadoutObj["theta"];
-        }
-    }
-
-    readout.subscribe(handleReadoutChanged);
 </script>
 
 <div class="coord-grid">
-    <SingleCoord label="X" value={xValue} />
-    <SingleCoord label="Y" value={yValue} />
-    <SingleCoord label="R" value={rValue} />
-    <SingleCoord label="&#952;" value={thetaValue} />
+    <SingleCoord label="X" value={($readout ? $readout.X : "")} />
+    <SingleCoord label="Y" value={$readout ? $readout.Y : ""} />
+    <SingleCoord label="R" value={$readout ? $readout.R : ""} />
+    <SingleCoord label="&#952;" value={$readout ? $readout.Theta : ""} />
 </div>
 
 <style>

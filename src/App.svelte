@@ -27,7 +27,6 @@
 		{/if}
 		<div class="drawingzone" id="drawingzone" />
 	</div>
-	<div style="background-color:#BBB; height: 75px;" />
 
 	<!-- Insert the error Modal into the DOM, (its CSS hides itself) -->
 	<ErrorModal />
