@@ -77,7 +77,7 @@
         &#9654;
     </div>
 </div>
-
+    
 <style>
     .label {
         color: white;

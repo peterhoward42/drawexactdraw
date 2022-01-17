@@ -4,6 +4,7 @@ import { rayLength, rayMode, readout } from "./cpts/toolbar/toolbarstore.js";
 import { processArrivingError } from './cpts/error/errorcontroller.js'
 import { customAngle } from './cpts/toolbar/toolbarstore.js';
 import { bringUpLineStyleMenu } from './cpts/properties/menulaunch.js';
+import { bringUpParaMenu } from './cpts/properties/menulaunch.js';
 
 export async function interpretMessage(topic, payload) {
 
@@ -17,6 +18,9 @@ export async function interpretMessage(topic, payload) {
             break;
         case "linestyle":
             bringUpLineStyleMenu(payload);
+            break;
+        case "parastyle":
+            bringUpParaMenu(payload);
             break;
         case "raylength":
             rayLength.set(payload);
