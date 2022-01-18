@@ -58,28 +58,33 @@
 <div class="menu bg2">
     <div class="label small">Justify</div>
     <div
-        class="standout-ctrl small w3-button w3-ripple"
+        class="justify standout-ctrl small w3-button w3-ripple"
         on:click={handleJustification}
     >
         &#9654;
     </div>
 
     <div class="label small">Height</div>
-    <input class="menuinput standout-ctrl small" bind:value={localTextHeight} />
+    <input class="height menuinput standout-ctrl small" size=5 bind:value={localTextHeight} />
 
     <div class="label small">Angle</div>
-    <input class="menuinput standout-ctrl small " bind:value={localAngle} />
+    <input class="menuinput standout-ctrl small" size="5"bind:value={localAngle} />
 
     <div class="txtlabel label small">Text</div>
-    <textarea class="standout-ctrl small " rows="6" cols="35" bind:value={localLines} />
+    <textarea class="text standout-ctrl small " rows="6" cols="35" bind:value={localLines} />
 </div>
 
 <style>
+    .justify {
+        border: 1px solid cornflowerblue;
+        border-radius: 5px;
+        padding: 4px 10px 4px 10px;    }
     .menu {
         display: grid;
-        gap: 20px 5px;
+        gap: 20px 10px;
         grid-template-columns: auto auto;
         align-items: center;
+        justify-items: start;
         padding: 5px;
     }
     .label {
@@ -99,4 +104,9 @@
     .menuinput:focus {
         outline: none;
     }
+
+    .text {
+        resize: vertical;
+    }
+
 </style>
