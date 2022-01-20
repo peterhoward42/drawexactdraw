@@ -81,7 +81,7 @@
         padding: 4px 10px 4px 10px;    }
     .menu {
         display: grid;
-        gap: 20px 10px;
+        gap: 10px 10px;
         grid-template-columns: auto auto;
         align-items: center;
         justify-items: start;
