@@ -1,5 +1,6 @@
 <script>
     import { currentLineStyle } from "./propertiesstore";
+    import NudgeBtn from "../common/NudgeBtn.svelte";
 
     $: localLineStyle = $currentLineStyle;
 
@@ -56,42 +57,26 @@
     }
 </script>
 
-<div class="menu">
-    <div class="label">Thickness</div>
-    <div class="standout-ctrl small w3-button w3-ripple" on:click={handleWeight}>
-        &#9654;
-    </div>
+<div class="menu bg-dark">
+    <div class="std-label small">Thickness</div>
+    <NudgeBtn onNudgeHandler={handleWeight} />
 
-    <div class="label">Dash Pattern</div>
-    <div class="standout-ctrl small w3-button w3-ripple" on:click={handleDashes}>
-        &#9654;
-    </div>
+    <div class="std-label small">Dash Pattern</div>
+    <NudgeBtn onNudgeHandler={handleDashes} />
 
-    <div class="label">Start Arrow</div>
-    <div class="standout-ctrl  small w3-button w3-ripple" on:click={handleStartArrow}>
-        &#9654;
-    </div>
+    <div class="std-label small">Start Arrow</div>
+    <NudgeBtn onNudgeHandler={handleStartArrow} />
 
-    <div class="label">End Arrow</div>
-    <div class="standout-ctrl  small w3-button w3-ripple" on:click={handleEndArrow}>
-        &#9654;
-    </div>
+    <div class="std-label small">End Arrow</div>
+    <NudgeBtn onNudgeHandler={handleEndArrow} />
 </div>
-    
+
 <style>
-    .label {
-        color: white;
-        font-size: 8pt;
-    }
     .menu {
         display: grid;
-        gap: 0px 5px;
+        gap: 5px 5px;
         grid-template-columns: auto auto;
         align-items: center;
-        background-color: #333;
         padding: 5px;
-    }
-    .small {
-        font-size: 9pt;
     }
 </style>

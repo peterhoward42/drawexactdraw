@@ -8,7 +8,7 @@
 <div class="sidebar">
     <div class="header">
         <div class="title">{$sideBarTitle}</div>
-        <div class="standout-ctrl small w3-button w3-ripple" on:click={dismiss}>
+        <div class="std-ctrl small w3-button w3-ripple" on:click={dismiss}>
             &times;
         </div>
     </div>

@@ -1,5 +1,6 @@
 <script>
     import { currentPara } from "./propertiesstore";
+    import NudgeBtn from "../common/NudgeBtn.svelte";
 
     // We subscribe to the store paragraph properties.
     $: localPara = $currentPara;
@@ -55,30 +56,30 @@
     }
 </script>
 
-<div class="menu bg2">
-    <div class="label small">Justify</div>
-    <div
-        class="justify standout-ctrl small w3-button w3-ripple"
-        on:click={handleJustification}
-    >
-        &#9654;
-    </div>
+<div class="menu bg-dark">
+    <div class="std-label small">Justify</div>
+    <NudgeBtn onNudgeHandler={handleJustification} />
 
-    <div class="label small">Height</div>
-    <input class="height menuinput standout-ctrl small" size=5 bind:value={localTextHeight} />
+    <div class="std-label small">Height</div>
+    <input
+        class="height input std-ctrl small"
+        size="5"
+        bind:value={localTextHeight}
+    />
 
-    <div class="label small">Angle</div>
-    <input class="menuinput standout-ctrl small" size="5"bind:value={localAngle} />
+    <div class="std-label small">Angle</div>
+    <input class="input std-ctrl small" size="5" bind:value={localAngle} />
 
-    <div class="txtlabel label small">Text</div>
-    <textarea class="text standout-ctrl small " rows="6" cols="35" bind:value={localLines} />
+    <div class="txtlabel std-label small">Text</div>
+    <textarea
+        class="text std-ctrl small "
+        rows="6"
+        cols="35"
+        bind:value={localLines}
+    />
 </div>
 
 <style>
-    .justify {
-        border: 1px solid cornflowerblue;
-        border-radius: 5px;
-        padding: 4px 10px 4px 10px;    }
     .menu {
         display: grid;
         gap: 10px 10px;
@@ -87,26 +88,22 @@
         justify-items: start;
         padding: 5px;
     }
-    .label {
-        color: white;
-    }
 
     .txtlabel {
         align-self: flex-start;
     }
 
-    .menuinput {
+    .input {
         border-top-style: hidden;
         border-right-style: hidden;
         border-left-style: hidden;
         border-bottom-style: groove;
     }
-    .menuinput:focus {
+    .input:focus {
         outline: none;
     }
 
     .text {
         resize: vertical;
     }
-
 </style>
