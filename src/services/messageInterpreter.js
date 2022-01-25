@@ -1,10 +1,8 @@
 import { tick } from 'svelte';
 
-import { rayLength, rayMode, readout } from "./cpts/toolbar/toolbarstore.js";
-import { processArrivingError } from './cpts/error/errorcontroller.js'
-import { customAngle } from './cpts/toolbar/toolbarstore.js';
-import { bringUpLineStyleMenu } from './cpts/properties/menulaunch.js';
-import { bringUpParaMenu } from './cpts/properties/menulaunch.js';
+import { rayLength, rayMode, readout, customAngle } from "../cpts/toolbar/toolbarstore.js";
+import { processArrivingError } from '../cpts/error/errorcontroller.js'
+import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menulaunch.js';
 
 export async function interpretMessage(topic, payload) {
 

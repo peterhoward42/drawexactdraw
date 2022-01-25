@@ -2,7 +2,7 @@
 	import { onMount, tick } from "svelte";
 
 	import { sideBarComponent } from "./cpts/sidebar/sidebarstore";
-	import { interpretMessage } from "./messageInterpreter.js";
+	import { interpretMessage } from "./services/messageInterpreter.js";
 	import { makeOnMountHandler } from "./services/makeonmounthandler.js";
 
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
