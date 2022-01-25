@@ -61,7 +61,7 @@
 
 <div class="raycontrols">
     <input
-        class="input"
+        class="input std-ctrl small"
         value={valueForExactInputBox}
         use:tooltip
         title="Change Ray Length"
@@ -72,7 +72,7 @@
     conditionally. The click behaviour does not differ - it is only a visual
     cue for the user about what they are editing. -->
     <div
-        class="mode-button w3-button w3-ripple"
+        class="mode-button bg-dark std-ctrl w3-button w3-ripple"
         use:tooltip
         title="Change Ray Pattern"
         on:click={emitIncrementRayMode}
@@ -91,20 +91,19 @@
         align-items: stretch;
     }
     .input {
-        font-size: 8pt;
         padding: 0px;
-        border: thin solid #444;
         margin: 0px;
         padding-left: 3px;
         width: 70px;
-        background-color: #333;
-        color: cornflowerblue;
+
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
     }
     .mode-button {
         font-size: 20px;
         padding: 0px 5px 0px 5px;
-        background-color: #333;
-        color: cornflowerblue;
-        border: thin solid #444;
+        border-left: 1px solid #666;
     }
 </style>

@@ -15,17 +15,20 @@
 </script>
 
 <style>
+    .error-cpt {
+        color: white;
+    }
 </style>
 
-<div id="errormodalcpt" class="w3-modal" bind:this={thisErrorModalCpt}>
+<div id="errormodalcpt" class="w3-modal error-cpt" bind:this={thisErrorModalCpt}>
     <div class="w3-modal-content">
-        <header class="w3-container w3-teal">
+        <header class="w3-container bg-med">
             <span
                 onclick="document.getElementById('errormodalcpt').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>
             <h4>Error</h4>
         </header>
-        <div class="w3-container w3-yellow">
+        <div class="w3-container bg-dark">
             <p>{$errorMessage}</p>
         </div>
     </div>
