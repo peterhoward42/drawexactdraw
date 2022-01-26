@@ -1,8 +1,12 @@
 import { tick } from 'svelte';
 
+import Paste from "../cpts/paste/Paste.svelte";
+
 import { rayLength, rayMode, readout, customAngle } from "../cpts/toolbar/toolbarstore.js";
 import { processArrivingError } from '../cpts/error/errorcontroller.js'
 import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menulaunch.js';
+import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
+import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 
 export async function interpretMessage(topic, payload) {
 
@@ -11,6 +15,9 @@ export async function interpretMessage(topic, payload) {
         case "customangle":
             customAngle.set(payload)
             break;
+        case "enterpastemode":
+            sideBarComponent.set(Paste);
+            sideBarTitle.set("Paste Settings");
         case "error":
             processArrivingError(payload);
             break;
