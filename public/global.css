@@ -1,9 +1,9 @@
 .bg-med {
-    background-color: #222;
+    background-color: #444;
 }
 
 .bg-dark {
-    background-color: #444;
+    background-color: #222;
 }
 
 input, textarea {
@@ -24,4 +24,8 @@ input, textarea {
 
 .std-label {
     color: white;
+}
+
+.mono {
+    font-family: monospace;
 }

@@ -5,7 +5,7 @@
     const dismiss = () => sideBarComponent.set(null);
 </script>
 
-<div class="sidebar">
+<div class="sidebar bg-dark">
     <div class="header">
         <div class="title">{$sideBarTitle}</div>
         <div class="std-ctrl small w3-button w3-ripple" on:click={dismiss}>
@@ -19,7 +19,7 @@
 
 <style>
     .sidebar {
-        background-color: #222;
+        padding: 7px;
     }
     .header {
         display: flex;
