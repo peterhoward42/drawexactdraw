@@ -57,20 +57,20 @@
 </script>
 
 <div class="menu bg-dark">
-    <div class="std-label small">Justify</div>
+    <div class="q_label small">Justify</div>
     <NudgeBtn onNudgeHandler={handleJustification} />
 
-    <div class="std-label small">Height</div>
+    <div class="q_label small">Height</div>
     <input
         class="height input std-ctrl small"
         size="5"
         bind:value={localTextHeight}
     />
 
-    <div class="std-label small">Angle</div>
+    <div class="q_label small">Angle</div>
     <input class="input std-ctrl small" size="5" bind:value={localAngle} />
 
-    <div class="txtlabel std-label small">Text</div>
+    <div class="txtlabel q_label small">Text</div>
     <textarea
         class="text std-ctrl small "
         rows="6"

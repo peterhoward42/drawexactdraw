@@ -58,16 +58,16 @@
 </script>
 
 <div class="menu bg-dark">
-    <div class="std-label small">Thickness</div>
+    <div class="q_label small">Thickness</div>
     <NudgeBtn onNudgeHandler={handleWeight} />
 
-    <div class="std-label small">Dash Pattern</div>
+    <div class="q_label small">Dash Pattern</div>
     <NudgeBtn onNudgeHandler={handleDashes} />
 
-    <div class="std-label small">Start Arrow</div>
+    <div class="q_label small">Start Arrow</div>
     <NudgeBtn onNudgeHandler={handleStartArrow} />
 
-    <div class="std-label small">End Arrow</div>
+    <div class="q_label small">End Arrow</div>
     <NudgeBtn onNudgeHandler={handleEndArrow} />
 </div>
 

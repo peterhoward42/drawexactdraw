@@ -1,31 +1,38 @@
-.bg-med {
-    background-color: #444;
-}
-
-.bg-dark {
+.q_bg {
     background-color: #222;
 }
 
-input, textarea {
-    background-color: #444; 
-}
-
-.small {
+.q_txt {
+    color: #CCC;
     font-size: 9pt;
 }
 
-.tippy-content {
-    font-size: 7pt;
+.q_heading {
+    color: #777;
+    font-size: 10pt;
 }
 
-.std-ctrl {
-    color: cornflowerblue;
+.q_input {
+    color: #CCC;
+    background-color: #222;
+    font-size: 9pt;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
 }
 
-.std-label {
-    color: white;
+.q_input:focus {
+    outline: none;
 }
 
-.mono {
-    font-family: monospace;
+.q_code {
+    font-family: "Courier New", monospace;
+    color: #BBB;
+    font-size: 10px;
+}
+
+.q_unicode_btn {
+    color: #CCC;
+    font-size: 10pt;
 }

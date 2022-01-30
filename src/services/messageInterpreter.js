@@ -17,7 +17,7 @@ export async function interpretMessage(topic, payload) {
             break;
         case "enterpastemode":
             sideBarComponent.set(Paste);
-            sideBarTitle.set("Paste Settings");
+            sideBarTitle.set("PASTE SETTINGS");
             break;
         case "error":
             processArrivingError(payload);

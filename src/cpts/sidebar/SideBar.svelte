@@ -5,10 +5,10 @@
     const dismiss = () => sideBarComponent.set(null);
 </script>
 
-<div class="sidebar bg-dark">
+<div class="sidebar q_bg">
     <div class="header">
-        <div class="title">{$sideBarTitle}</div>
-        <div class="std-ctrl small w3-button w3-ripple" on:click={dismiss}>
+        <div class="q_heading title">{$sideBarTitle}</div>
+        <div class="q_unicode_btn w3-button w3-ripple" on:click={dismiss}>
             &times;
         </div>
     </div>
@@ -19,18 +19,15 @@
 
 <style>
     .sidebar {
-        padding: 7px;
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .header {
         display: flex;
-        background-color: #222;
     }
     .title {
         flex-grow: 1;
         align-self: center;
-        color: white;
-    }
-    .sidebar-cpt {
-        background-color: #333;
     }
 </style>
