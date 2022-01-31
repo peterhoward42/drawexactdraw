@@ -19,7 +19,7 @@
 	
 </script>
 
-<div class="page">
+<div class="page q_bg">
 	<ToolBar />
 	<div class="main-content">
 		{#if $sideBarComponent}
@@ -41,7 +41,6 @@
 	.main-content {
 		display: flex;
 		flex-grow: 1;
-		background-color: black;
 	}
 	.drawingzone {
 		flex-grow: 1;

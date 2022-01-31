@@ -12,9 +12,8 @@
     .toolbar {
         display: flex;
         flex-direction: row;
-        align-items: stretch;
-        column-gap: 7px;
-        background-color: #222;
-        padding: 3px;
+        align-items: flex-center;
+        margin: 5px;
+        gap: 50px;
     }
 </style>

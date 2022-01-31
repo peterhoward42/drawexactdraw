@@ -3,16 +3,23 @@
 </script>
 
 <div
-    class="nudge-btn std-ctrl small w3-button w3-ripple"
-    on:click={onNudgeHandler}
->
-    &#9654;
+    class="q_txt nudge" on:click={onNudgeHandler}> &#9654;
 </div>
 
 <style>
-    .nudge-btn {
-        border: 1px solid cornflowerblue;
+    .nudge {
+        padding: 2px 5px 1px 5px;
+        border: 1px solid #222;
         border-radius: 5px;
-        padding: 1px 5px 1px 5px;
+
+    }
+    .nudge:hover {
+        color: #555;
+        border: 1px solid #555;
+
+    }
+    .nudge:active {
+        color: #222;
+        border: 1px solid #222;
     }
 </style>

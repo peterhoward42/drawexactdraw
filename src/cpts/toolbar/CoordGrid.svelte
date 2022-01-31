@@ -3,7 +3,7 @@
     import { readout } from "./toolbarstore";
 </script>
 
-<div class="coord-grid">
+<div class="coords">
     <SingleCoord label="X" value={($readout ? $readout.X : "")} />
     <SingleCoord label="Y" value={$readout ? $readout.Y : ""} />
     <SingleCoord label="R" value={$readout ? $readout.R : ""} />
@@ -11,10 +11,8 @@
 </div>
 
 <style>
-    .coord-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        background-color: #333;
-        border: thin solid #444;
+    .coords {
+        display: flex;
+        align-items: flex-center;
     }
 </style>

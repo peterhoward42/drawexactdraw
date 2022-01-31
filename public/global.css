@@ -12,6 +12,10 @@
     font-size: 10pt;
 }
 
+.q_attenuated {
+    color: #777;
+}
+
 .q_input {
     color: #CCC;
     background-color: #222;
@@ -24,15 +28,4 @@
 
 .q_input:focus {
     outline: none;
-}
-
-.q_code {
-    font-family: "Courier New", monospace;
-    color: #BBB;
-    font-size: 10px;
-}
-
-.q_unicode_btn {
-    color: #CCC;
-    font-size: 10pt;
 }

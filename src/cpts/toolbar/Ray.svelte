@@ -1,6 +1,7 @@
 <script>
     import { rayLength, rayMode, customAngle } from "./toolbarstore.js";
     import tooltip from "../common/tooltip.js";
+    import NudgeBtn from "../common/NudgeBtn.svelte";
 
     // We use a local variable to specify what the Exact Input box should
     // render, so that we can multplex what the Input box shows depending on the
@@ -60,50 +61,32 @@
 </script>
 
 <div class="raycontrols">
+    <div class="q_txt q_attenuated">
+        Ray Length
+    </div>
     <input
-        class="input std-ctrl small"
+        class="q_input"
         value={valueForExactInputBox}
+        size=7
         use:tooltip
         title="Change Ray Length"
         on:keyup={handleExactInputValueChanged}
     />
 
-    <!-- Note this button shows either a sun-ray symbol or an angle symbol 
-    conditionally. The click behaviour does not differ - it is only a visual
-    cue for the user about what they are editing. -->
-    <div
-        class="mode-button bg-dark std-ctrl w3-button w3-ripple"
-        use:tooltip
-        title="Change Ray Pattern"
-        on:click={emitIncrementRayMode}
-    >
-    {#if currentRayMode === "customangle"}
-        &#x2220;
-    {:else}
-        &#x2600;
-    {/if}
+    <div class="q_txt q_attenuated ray-type-lbl">
+        Ray Type
     </div>
+
+    <NudgeBtn onNudgeHandler={emitIncrementRayMode} />
 </div>
 
 <style>
     .raycontrols {
         display: flex;
-        align-items: stretch;
+        align-items: flex-center;
+        gap: 10px;
     }
-    .input {
-        padding: 0px;
-        margin: 0px;
-        padding-left: 3px;
-        width: 70px;
-
-        border-top-style: hidden;
-        border-right-style: hidden;
-        border-left-style: hidden;
-        border-bottom-style: hidden;
-    }
-    .mode-button {
-        font-size: 20px;
-        padding: 0px 5px 0px 5px;
-        border-left: 1px solid #666;
+    .ray-type-lbl {
+        margin-left: 20px;
     }
 </style>

@@ -10,11 +10,11 @@
 
     <div class="trans-heading q_heading ">TRANSFORM HELP</div>
 
-    <div class="q_txt ">Use</div>
-    <div class="q_code">scale, rotate, mirror</div>
+    <div class="q_txt ">Use:</div>
+    <div class="q_txt">scale, rotate, mirror</div>
 
-    <div class="q_txt ">Like this</div>
-    <div class="q_code">s0.5 r90 m1 r-90 ...</div>
+    <div class="q_txt ">Like this:</div>
+    <div class="q_txt">s0.5 r90 m1 r-90 ...</div>
 </div>
 
 <style>

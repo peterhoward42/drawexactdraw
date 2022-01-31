@@ -5,7 +5,7 @@
     const dismiss = () => sideBarComponent.set(null);
 </script>
 
-<div class="sidebar q_bg">
+<div class="sidebar">
     <div class="header">
         <div class="q_heading title">{$sideBarTitle}</div>
         <div class="q_unicode_btn w3-button w3-ripple" on:click={dismiss}>

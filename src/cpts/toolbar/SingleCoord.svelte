@@ -3,24 +3,18 @@
     export let value;
 </script>
 
+
+<div class="single-coord">
+    <div class="q_txt q_attenuated">{label}:</div>
+    <div class="q_txt value">{value}</div>
+</div>
+
 <style>
     .single-coord {
         display: flex;
-        font-size: 8pt;
         gap: 5px;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-    .label {
-        color: #DDD;
     }
     .value {
-        color: #AAA;
-        width: 6em;
+        width: 7em;
     }
 </style>
-
-<div class="single-coord">
-    <div class="label">{label}:</div>
-    <div class="value">{value}</div>
-</div>
