@@ -3,10 +3,10 @@
 
 <div class="paste">
     <div class="q_txt ">Number of Copies</div>
-    <input class="n-copies q_input" size="5" value="1" />
+    <input class= "q_input" size="5" value="1" />
 
     <div class="q_txt ">Transform</div>
-    <input class="q_input q_mono" size="20" value="s1" />
+    <input class="q_input" size="20" value="s1" />
 
     <div class="trans-heading q_heading ">TRANSFORM HELP</div>
 
