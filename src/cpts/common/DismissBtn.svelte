@@ -1,24 +1,24 @@
 <script>
-    export let onNudge;
+    export let clickHandler;
 </script>
 
 <div
-    class="q_txt nudge" on:click={onNudge}> &#9654;
+    class="q_txt dismiss" on:click={clickHandler}> &times;
 </div>
 
 <style>
-    .nudge {
+    .dismiss {
         padding: 2px 5px 1px 5px;
         border: 1px solid #222;
         border-radius: 5px;
 
     }
-    .nudge:hover {
+    .dismiss:hover {
         color: #555;
         border: 1px solid #555;
 
     }
-    .nudge:active {
+    .dismiss:active {
         color: #222;
         border: 1px solid #222;
     }

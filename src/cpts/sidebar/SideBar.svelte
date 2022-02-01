@@ -1,6 +1,7 @@
 <script>
     import { sideBarComponent } from "./sidebarstore.js";
     import { sideBarTitle } from "./sidebarstore.js";
+    import DismissButton from "../common/DismissBtn.svelte";
 
     const dismiss = () => sideBarComponent.set(null);
 </script>
@@ -8,9 +9,7 @@
 <div class="sidebar">
     <div class="header">
         <div class="q_heading title">{$sideBarTitle}</div>
-        <div class="q_unicode_btn w3-button w3-ripple" on:click={dismiss}>
-            &times;
-        </div>
+        <DismissButton clickHandler={dismiss} />
     </div>
     <div class="sidebar-cpt">
         <svelte:component this={$sideBarComponent} />
@@ -19,12 +18,13 @@
 
 <style>
     .sidebar {
-        padding-top: 10px;
+        margin-top: 30px;
         padding-left: 5px;
         padding-right: 5px;
     }
     .header {
         display: flex;
+        margin-bottom: 10px;
     }
     .title {
         flex-grow: 1;

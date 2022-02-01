@@ -61,23 +61,19 @@
 </script>
 
 <div class="raycontrols">
-    <div class="q_txt q_attenuated">
-        Ray Length
-    </div>
+    <div class="q_txt q_attenuated">Ray Length</div>
     <input
         class="q_input"
         value={valueForExactInputBox}
-        size=7
+        size="7"
         use:tooltip
         title="Change Ray Length"
         on:keyup={handleExactInputValueChanged}
     />
 
-    <div class="q_txt q_attenuated ray-type-lbl">
-        Ray Type
-    </div>
+    <div class="q_txt q_attenuated ray-type-lbl">Ray Type</div>
 
-    <NudgeBtn onNudgeHandler={emitIncrementRayMode} />
+    <NudgeBtn onNudge={emitIncrementRayMode} />
 </div>
 
 <style>

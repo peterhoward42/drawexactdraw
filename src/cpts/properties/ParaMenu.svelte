@@ -58,7 +58,7 @@
 
 <div class="menu bg-dark">
     <div class="q_label small">Justify</div>
-    <NudgeBtn onNudgeHandler={handleJustification} />
+    <NudgeBtn onNudge={handleJustification} />
 
     <div class="q_label small">Height</div>
     <input
