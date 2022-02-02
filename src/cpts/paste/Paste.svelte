@@ -1,12 +1,22 @@
 <script>
+
+    function handleTransformChanged(evt) {
+        msgBusPubString("ui:usertransforms", evt.target.value);
+    }
+
 </script>
 
 <div class="paste">
     <div class="q_txt ">Number of Copies</div>
-    <input class= "q_input" size="5" value="1" />
+    <input class="q_input" size="5" value="1" />
 
     <div class="q_txt ">Transform</div>
-    <input class="q_input" size="20" value="s1" />
+    <input
+        class="q_input"
+        size="20"
+        on:keyup={handleTransformChanged}
+        value="s1"
+    />
 
     <div class="trans-heading q_heading ">TRANSFORM HELP</div>
 

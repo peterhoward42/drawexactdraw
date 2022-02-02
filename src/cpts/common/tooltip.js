@@ -11,10 +11,10 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // necessary else you see nothing.
 
 export default function tooltip(node, params = {}) {
-    const content = node.title;
 
     // We use the node's title as the tool tip, so we must defeat the default
     // behavior of the title showing up on hover.
+    const content = node.title;
     node.title = "";
 
     const tip = tippy(node, {
