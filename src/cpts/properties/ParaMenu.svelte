@@ -56,54 +56,35 @@
     }
 </script>
 
-<div class="menu bg-dark">
-    <div class="q_label small">Justify</div>
+<div class="menu">
+    <div class=" q_txt">Justify</div>
     <NudgeBtn onNudge={handleJustification} />
 
-    <div class="q_label small">Height</div>
-    <input
-        class="height input std-ctrl small"
-        size="5"
-        bind:value={localTextHeight}
-    />
+    <div class=" q_txt">Height</div>
+    <input class="height q_input" size="5" bind:value={localTextHeight} />
 
-    <div class="q_label small">Angle</div>
-    <input class="input std-ctrl small" size="5" bind:value={localAngle} />
+    <div class=" q_txt">Angle</div>
+    <input class="q_input " size="5" bind:value={localAngle} />
 
-    <div class="txtlabel q_label small">Text</div>
-    <textarea
-        class="text std-ctrl small "
-        rows="6"
-        cols="35"
-        bind:value={localLines}
-    />
+    <div class="q_txt text_label">Text</div>
+    <textarea class="text q_textarea " rows="6" cols="35" bind:value={localLines} />
 </div>
 
 <style>
     .menu {
         display: grid;
-        gap: 10px 10px;
+        gap: 20px 20px;
         grid-template-columns: auto auto;
         align-items: center;
         justify-items: start;
         padding: 5px;
     }
 
-    .txtlabel {
-        align-self: flex-start;
-    }
-
-    .input {
-        border-top-style: hidden;
-        border-right-style: hidden;
-        border-left-style: hidden;
-        border-bottom-style: groove;
-    }
-    .input:focus {
-        outline: none;
-    }
-
     .text {
         resize: vertical;
+    }
+
+    .text_label {
+        align-self: flex-start;
     }
 </style>

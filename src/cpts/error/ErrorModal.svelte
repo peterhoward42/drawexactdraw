@@ -1,9 +1,10 @@
 <script>
     import { errorMessage } from "./errorstore.js";
+    import DismissBtn from "../common/DismissBtn.svelte"
 
-    // We bind to this variable in the html below to provide access to 
+    // We bind to this variable in the html below to provide access to
     // this top level component.
-    let thisErrorModalCpt
+    let thisErrorModalCpt;
 
     // If the modal has siezed focus, then we interpret a click anwhere outside
     // of it, as a signal to dismiss it.
@@ -12,24 +13,33 @@
             thisErrorModalCpt.style.display = "none";
         }
     };
+
+    function dismissModal() {
+        document.getElementById('errormodalcpt').style.display='none'
+    }
 </script>
 
-<style>
-    .error-cpt {
-        color: white;
-    }
-</style>
-
-<div id="errormodalcpt" class="w3-modal error-cpt" bind:this={thisErrorModalCpt}>
-    <div class="w3-modal-content">
-        <header class="w3-container bg-med">
-            <span
-                onclick="document.getElementById('errormodalcpt').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-            <h4>Error</h4>
-        </header>
-        <div class="w3-container bg-dark">
-            <p>{$errorMessage}</p>
+<div class="w3-modal" id="errormodalcpt" bind:this={thisErrorModalCpt}>
+    <div class="modal-content w3-modal-content">
+        <div class="header q_heading">
+            <div>ERROR</div>
+            <DismissBtn clickHandler={dismissModal}></DismissBtn>
+        </div>
+        <div class="q_txt">
+            {$errorMessage}
         </div>
     </div>
 </div>
+
+<style> 
+    .modal-content {
+        background-color: #222;
+        padding: 5px;
+        width: 400px;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+</style>

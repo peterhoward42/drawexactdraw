@@ -29,3 +29,13 @@
 .q_input:focus {
     outline: none;
 }
+
+.q_textarea {
+    color: #CCC;
+    background-color: #222;
+    font-size: 9pt;
+}
+
+.q_textarea:focus {
+    outline: none;
+}
