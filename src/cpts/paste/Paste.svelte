@@ -4,11 +4,15 @@
         msgBusPubString("ui:usertransforms", evt.target.value);
     }
 
+    function handlePasteCountChanged(evt) {
+        msgBusPubString("ui:pastecount", evt.target.value);
+    }
+
 </script>
 
 <div class="paste">
     <div class="q_txt ">Number of Copies</div>
-    <input class="q_input" size="5" value="1" />
+    <input class="q_input" size="5" on:keyup={handlePasteCountChanged} value="1" />
 
     <div class="q_txt ">Transform</div>
     <input
