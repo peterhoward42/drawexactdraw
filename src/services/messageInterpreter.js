@@ -20,6 +20,9 @@ export async function interpretMessage(topic, payload) {
             sideBarComponent.set(Paste);
             sideBarTitle.set("PASTE SETTINGS");
             break;
+        case "escapejusthappened":
+            sideBarComponent.set(null);
+            break;
         case "error":
             processArrivingError(payload);
             break;
