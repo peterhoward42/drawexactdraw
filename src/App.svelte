@@ -3,7 +3,7 @@
 
 	import { sideBarComponent } from "./cpts/sidebar/sidebarstore";
 	import { interpretMessage } from "./services/messageInterpreter.js";
-	import { makeOnMountHandler } from "./services/makeonmounthandler.js";
+	import { makeOnMountHandlerForEntireApp } from "./services/makeonmounthandler.js";
 
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBar from "./cpts/sidebar/SideBar.svelte";
@@ -15,7 +15,7 @@
 
 	// Register an async function to handle the initialization steps that
 	// can only be done after this component is mounted to the DOM.
-	onMount(makeOnMountHandler(sideBarComponent, tick));
+	onMount(makeOnMountHandlerForEntireApp(sideBarComponent, tick));
 	
 </script>
 

@@ -1,12 +1,12 @@
 import { alertWASMDrawingAreaChanged } from "./drawingareachanged.js"
 
-// makeOnMountHandler returns a function that can be called later to do the
-// initialization steps that can only be done after the App component has
+// makeOnMountHandlerForEntireApp returns a function that can be called later to do the
+// initialization steps for the whole App, that can only be done after the App component has
 // been mounted to the DOM.
 // 
 // You have to pass in a reference to the side bar Svelte component, and
 // Svelte's tick function.
-export function makeOnMountHandler(sideBarComponent, tick) {
+export function makeOnMountHandlerForEntireApp(sideBarComponent, tick) {
     return () => {
         // We have to wait until WASM has exported the messaging function
         // we need to communicate with it.
@@ -22,7 +22,10 @@ export function makeOnMountHandler(sideBarComponent, tick) {
 
                 // Tell WASM the drawing area likely changed whenever
                 // sideBarComponent switches to a different one (or null).
-                sideBarComponent.subscribe(alertWASM(tick))
+                //
+                // We have no need to unsubscribe because the App does not
+                // get created or unmounted multiple times.
+                const unsubscriber = sideBarComponent.subscribe(alertWASM(tick))
             }
         }, 100);
     };

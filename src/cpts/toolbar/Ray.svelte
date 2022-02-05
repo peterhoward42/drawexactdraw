@@ -16,9 +16,16 @@
     // Nb. This is despite those values being sourced in the first place by
     // this UI component, because we wish to react only to validated changes
     // that the WASM is now regarding as the truth.
-    rayLength.subscribe(handleStoredRayLengthChanged);
-    rayMode.subscribe(handleStoredRayModeChanged);
-    customAngle.subscribe(handleStoredCustomAngleChanged);
+    //
+    // We capture the unsubscribers to make all calls to subscribe in the repo
+    // adhere to that standard, although in this case we need not unsubscribe in
+    // the unMount() handler, because this component lives as long as the App
+    // does.
+    const unsubscribers = [
+        rayLength.subscribe(handleStoredRayLengthChanged),
+        rayMode.subscribe(handleStoredRayModeChanged),
+        customAngle.subscribe(handleStoredCustomAngleChanged),
+    ];
 
     // When we receive a newly validated ray length from WASM, we need to
     // show it in our Input box, and remember the value locally, so that we can
