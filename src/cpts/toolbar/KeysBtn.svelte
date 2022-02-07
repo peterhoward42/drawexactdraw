@@ -14,19 +14,10 @@
 
 
 <style>
-    .keys {
-        padding: 2px 5px 1px 5px;
-        border: 1px solid #222;
-        border-radius: 5px;
-
-    }
     .keys:hover {
-        color: #555;
-        border: 1px solid #555;
-
+        text-decoration: underline;
     }
     .keys:active {
         color: #222;
-        border: 1px solid #222;
     }
 </style>
