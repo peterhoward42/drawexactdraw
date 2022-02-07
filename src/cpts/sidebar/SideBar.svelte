@@ -25,6 +25,7 @@
     .header {
         display: flex;
         margin-bottom: 10px;
+        gap: 30px;
     }
     .title {
         flex-grow: 1;

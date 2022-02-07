@@ -1,11 +1,13 @@
 <script>
     import CoordGrid from "./CoordGrid.svelte"
     import Ray from "./Ray.svelte"
+    import Keys from "./KeysBtn.svelte"
 </script>
 
 <div class=toolbar>
     <Ray/>
     <CoordGrid/>
+    <Keys/>
 </div>
 
 <style>
