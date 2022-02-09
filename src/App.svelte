@@ -8,6 +8,8 @@
 	import ToolBar from "./cpts/toolbar/ToolBar.svelte";
 	import SideBar from "./cpts/sidebar/SideBar.svelte";
 	import ErrorModal from "./cpts/error/ErrorModal.svelte";
+	
+	import SelectionAdviceModal from "./cpts/selectionsadvice/SelectionAdviceModal.svelte";
 
 	// Put a function into the global namespace, that WASM can call in order
 	// to send messages to javascript.
@@ -30,6 +32,7 @@
 
 	<!-- Insert the error Modal into the DOM, (its CSS hides itself) -->
 	<ErrorModal />
+	<SelectionAdviceModal />
 </div>
 
 <style>

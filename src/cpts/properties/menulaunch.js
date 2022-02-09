@@ -16,7 +16,7 @@ function bringUpLineStyleMenu(payloadJSON) {
     // And update the store's sideBarComponent to be the linestyle menu.
     // That will cause the sideBarComponent to appear, and render the menu.
     sideBarComponent.set(LineStyleMenu);
-    sideBarTitle.set("Line Style");
+    sideBarTitle.set("LINE STYLE");
 }
 
 function bringUpParaMenu(payloadJSON) {
@@ -27,5 +27,5 @@ function bringUpParaMenu(payloadJSON) {
     // And update the store's sideBarComponent to be the paragraph menu.
     // That will cause the sideBarComponent to appear, and render the menu.
     sideBarComponent.set(ParaMenu);
-    sideBarTitle.set("Text Properties");
+    sideBarTitle.set("TEXT PROPERTIES");
 }

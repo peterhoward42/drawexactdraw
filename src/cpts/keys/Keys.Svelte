@@ -24,7 +24,7 @@
 
 <style>
     .section {
-        margin: 10px;
+        margin-bottom: 10px;
     }
     .row {
         line-height: 1.5;

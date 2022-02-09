@@ -12,6 +12,7 @@
 <style>
     .single-coord {
         display: flex;
+        align-items: center;
         gap: 5px;
     }
     .value {

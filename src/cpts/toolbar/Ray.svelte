@@ -84,7 +84,7 @@
 <style>
     .raycontrols {
         display: flex;
-        align-items: flex-center;
+        align-items: baseline;
         gap: 10px;
     }
     .ray-type-lbl {

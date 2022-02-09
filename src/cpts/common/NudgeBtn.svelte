@@ -9,7 +9,7 @@
 <style>
     .nudge {
         padding: 2px 5px 1px 5px;
-        border: 1px solid #222;
+        border: 1px solid #777;
         border-radius: 5px;
 
     }
@@ -19,7 +19,7 @@
 
     }
     .nudge:active {
-        color: #222;
-        border: 1px solid #222;
+        color: #777;
+        border: 1px solid #777;
     }
 </style>

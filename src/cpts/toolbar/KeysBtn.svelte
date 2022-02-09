@@ -4,7 +4,7 @@
     
     function showKeysReminder() {
         sideBarComponent.set(Keys);
-        sideBarTitle.set("Command Reminders");
+        sideBarTitle.set("COMMAND REMINDERS");
     }
 </script>
 
