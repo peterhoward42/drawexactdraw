@@ -6,7 +6,6 @@
         <p class="row q_txt">Line</p>
         <p class="row q_txt">Arc</p>
         <p class="row q_txt">Text</p>
-        <p class="row q_txt">Bezier</p>
     </div>
     <div class="section">
         <p class="row q_txt">Undo</p>

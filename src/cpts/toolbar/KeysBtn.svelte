@@ -9,9 +9,8 @@
 </script>
 
 <div class="keys q_txt" on:click={showKeysReminder}>
-    Keys...
+    Commands...
 </div>
-
 
 <style>
     .keys:hover {
