@@ -28,7 +28,7 @@
     <div class="q_txt">scale, rotate, mirror</div>
 
     <div class="q_txt ">Like this:</div>
-    <div class="q_txt">s0.5 r90 m1 r-90 ...</div>
+    <div class="q_txt">s0.5 r90 m r-90 ...</div>
 </div>
 
 <style>
