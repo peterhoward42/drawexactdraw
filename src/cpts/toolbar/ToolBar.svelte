@@ -2,12 +2,14 @@
     import CoordGrid from "./CoordGrid.svelte";
     import Ray from "./Ray.svelte";
     import Keys from "./KeysBtn.svelte";
+    import MenuBtn from "./MenuBtn.svelte";
 </script>
 
 <div class="toolbar">
     <Ray />
     <CoordGrid />
     <Keys />
+    <MenuBtn />
 </div>
 
 <style>

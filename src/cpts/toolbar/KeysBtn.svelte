@@ -1,5 +1,6 @@
 <script>
     import Keys from "../keys/Keys.svelte"
+    import Link from "../common/Link.svelte"
     import {sideBarComponent, sideBarTitle} from "../sidebar/sidebarstore"
     
     function showKeysReminder() {
@@ -8,15 +9,7 @@
     }
 </script>
 
-<div class="keys q_txt" on:click={showKeysReminder}>
-    Commands...
-</div>
+<Link title="Commands" clickHandler={showKeysReminder}/>
 
 <style>
-    .keys:hover {
-        text-decoration: underline;
-    }
-    .keys:active {
-        color: #222;
-    }
 </style>
