@@ -8,6 +8,7 @@ import { processUserTransformsMalformed } from '../cpts/paste/pastecontroller.js
 import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menulaunch.js';
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
+import { drawingInfo } from "../cpts/menu/menustore.js"
 
 export async function interpretMessage(topic, payload) {
 
@@ -18,6 +19,9 @@ export async function interpretMessage(topic, payload) {
             break;
         case "customangle":
             customAngle.set(payload)
+            break;
+        case "drawinginfo":
+            drawingInfo.set(JSON.parse(payload));
             break;
         case "enterpastemode":
             sideBarComponent.set(Paste);
