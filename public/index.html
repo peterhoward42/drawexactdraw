@@ -21,11 +21,8 @@
 	<!-- Load the Svelte App. (It fires main.js)-->
 	<script defer src='/build/bundle.js'></script>
 
-	<!-- Load the go was helper javascript module, and the WASM module -->
-
-	<!-- Temporarily disable the WASM load TODO-->
-
-	<!-- <script src="wasm/wasm_exec.js"></script>
+	<!-- Load and run the WASM module that orchestrates the drawing UX -->
+	<script src="wasm/wasm_exec.js"></script>
 	<script>
 		const go = new Go();
 		WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
@@ -35,10 +32,9 @@
 
 </head>
 
-<!-- We need a body element because both the compiled Svelte App targets it. -->
+<!-- We need a body element because the compiled Svelte App targets it. -->
 
 <body>
-	<div id="firebaseui-auth-container"></div>
 </body>
 
 </html>
