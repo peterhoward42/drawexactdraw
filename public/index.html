@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
@@ -17,20 +18,27 @@
 	<!-- And finally we bring in the styles defined for individual components. -->
 	<link rel='stylesheet' href='/build/bundle.css'>
 
-	<!-- Load the Svelte App. -->
+	<!-- Load the Svelte App. (It fires main.js)-->
 	<script defer src='/build/bundle.js'></script>
 
 	<!-- Load the go was helper javascript module, and the WASM module -->
-	<script src="wasm/wasm_exec.js"></script>
-    <script>
-        const go = new Go();
-        WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
-            go.run(result.instance);
-        });
-    </script>
+
+	<!-- Temporarily disable the WASM load TODO-->
+
+	<!-- <script src="wasm/wasm_exec.js"></script>
+	<script>
+		const go = new Go();
+		WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
+			go.run(result.instance);
+		});
+	</script> -->
+
 </head>
 
-<!-- We need a body element because the compiled Svelte App targets it. -->
-<body></body>
+<!-- We need a body element because both the compiled Svelte App targets it. -->
+
+<body>
+	<div id="firebaseui-auth-container"></div>
+</body>
 
 </html>
