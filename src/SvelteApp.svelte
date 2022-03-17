@@ -1,16 +1,20 @@
 <script>
-	import router from "page";
+	import page  from "page";
 
-	import { currentPage } from "./pages/pagesstore"
+	import { currentPage } from "./pages/pagesstore.js"
 
 	import SignIn from "./pages/SignIn.svelte";
 	import Drawing from "./pages/Drawing.svelte";
+	import TermsOfService from "./pages/TermsOfService.svelte";
+	import Home from "./pages/Home.svelte";
 
 	// Specify routes and start the Router
-	router("/", () => $currentPage = SignIn)
-	router("/drawing", () => $currentPage = Drawing)
+	page("/", () => $currentPage = Home)
+	page("/signin", () => $currentPage = SignIn)
+	page("/drawing", () => $currentPage = Drawing)
+	page("/tos", () => $currentPage = TermsOfService)
 
-	router.start();
+	page();
 
 </script>
 

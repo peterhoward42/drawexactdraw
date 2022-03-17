@@ -1,13 +1,13 @@
 <script>
     import { onMount, tick } from "svelte";
 
-    import { sideBarComponent } from "./cpts/sidebar/sidebarstore";
-    import { interpretMessage } from "./services/messageInterpreter.js";
-    import { makeOnMountHandlerForEntireApp } from "./services/makeonmounthandler.js";
+    import { sideBarComponent } from "../cpts/sidebar/sidebarstore";
+    import { interpretMessage } from "../services/messageInterpreter.js";
+    import { makeOnMountHandlerForEntireApp } from "../services/makeonmounthandler.js";
 
-    import ToolBar from "./cpts/toolbar/ToolBar.svelte";
-    import SideBar from "./cpts/sidebar/SideBar.svelte";
-    import AdviceModal from "./cpts/advice/advicemodal.svelte";
+    import ToolBar from "../cpts/toolbar/ToolBar.svelte";
+    import SideBar from "../cpts/sidebar/SideBar.svelte";
+    import AdviceModal from "../cpts/advice/advicemodal.svelte";
 
     // Put a function into the global namespace, that WASM can call in order
     // to send messages to javascript.

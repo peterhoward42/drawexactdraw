@@ -22,7 +22,7 @@
 	<script defer src='/build/bundle.js'></script>
 
 	<!-- Load and run the WASM module that orchestrates the drawing UX -->
-	<script src="wasm/wasm_exec.js"></script>
+	<!-- <script src="wasm/wasm_exec.js"></script>
 	<script>
 		const go = new Go();
 		WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {

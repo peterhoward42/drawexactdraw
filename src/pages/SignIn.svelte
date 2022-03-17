@@ -34,11 +34,16 @@
 </script>
 
 <div>
-    <div>This is sign in page header</div>
+    <div>
+        This is sign in page header
+    </div>
 
-    <div id="firebaseui-auth-container" />
+    <div id="firebaseui-auth-container">
+    </div>
 
-    <div>This is sign in page footer</div>
+    <div>
+        This is sign in page footer
+    </div>
 </div>
 
 <style></style>
