@@ -19,7 +19,7 @@
     var firebaseUi = new firebaseui.auth.AuthUI(firebase.auth());
 
     var uiConfig = {
-        signInSuccessUrl: "<url-to-redirect-to-on-success>",
+        signInSuccessUrl: "drawing",
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         // tosUrl and privacyPolicyUrl accept either url string or a callback
         // function.

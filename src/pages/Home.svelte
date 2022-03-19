@@ -1,4 +1,5 @@
-<script></script>
+<script>
+</script>
 
 <div>
     Home Placeholder

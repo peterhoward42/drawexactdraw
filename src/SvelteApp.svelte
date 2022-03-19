@@ -7,10 +7,11 @@
 	import Drawing from "./pages/Drawing.svelte";
 	import TermsOfService from "./pages/TermsOfService.svelte";
 	import Home from "./pages/Home.svelte";
+	import Authorized from "./pages/Authorized.svelte";
 
 	// Specify routes and start the Router
-	page("/", () => $currentPage = Home)
-	page("/signin", () => $currentPage = SignIn)
+	page("/", () => $currentPage = SignIn)
+	page("/home", () => $currentPage = Home)
 	page("/drawing", () => $currentPage = Drawing)
 	page("/tos", () => $currentPage = TermsOfService)
 
