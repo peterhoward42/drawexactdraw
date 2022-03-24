@@ -11,6 +11,7 @@
 
 	// Specify routes and start the Router
 	page("/", () => $currentPage = SignIn)
+	page("/authorized", () => $currentPage = Authorized)
 	page("/home", () => $currentPage = Home)
 	page("/drawing", () => $currentPage = Drawing)
 	page("/tos", () => $currentPage = TermsOfService)

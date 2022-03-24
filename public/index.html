@@ -18,17 +18,17 @@
 	<!-- And finally we bring in the styles defined for individual components. -->
 	<link rel='stylesheet' href='/build/bundle.css'>
 
-	<!-- Load the Svelte App. (It fires main.js)-->
-	<script defer src='/build/bundle.js'></script>
-
-	<!-- Load and run the WASM module that orchestrates the drawing UX -->
+	<!-- Load the drawexact wasm module -->
 	<script src="wasm/wasm_exec.js"></script>
 	<script>
 		const go = new Go();
-		// WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
-		// 	go.run(result.instance);
-		// });
+		WebAssembly.instantiateStreaming(fetch("wasm/main.wasm"), go.importObject).then((result) => {
+			go.run(result.instance);
+		});
 	</script>
+
+	<!-- Load the Svelte App. (It fires main.js)-->
+	<script defer src='/build/bundle.js'></script>
 
 </head>
 

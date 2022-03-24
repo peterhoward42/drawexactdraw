@@ -19,7 +19,7 @@
     var firebaseUi = new firebaseui.auth.AuthUI(firebase.auth());
 
     var uiConfig = {
-        signInSuccessUrl: "drawing",
+        signInSuccessUrl: "authorized",
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         // tosUrl and privacyPolicyUrl accept either url string or a callback
         // function.
