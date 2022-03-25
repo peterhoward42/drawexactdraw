@@ -26,17 +26,23 @@
     // Wait for WASM load to complete -  as evidenced by the messaging function
     // msgBusPubString becoming available. (I.e. a function that lets the
     // javascript to send messages to the WASM module.)
-    onMount(foo);
+    onMount(bootstrapWhenWASMIsReady);
 
-    async function foo() {
-        console.log("XXXX arrived in foo");
+    async function bootstrapWhenWASMIsReady() {
+        console.log("XXXX arrived in waitForWasmToBeReady");
         let myInterval = setInterval(async function () {
             if (typeof msgBusPubString == "function") {
                 clearInterval(myInterval);
                 console.log("XXXX msgBusPubString has arrived");
+                harvestUserDetails();
             }
         }, 100);
     }
+
+    function harvestUserDetails() {
+
+    }
+
 </script>
 
 <div>Authorized</div>

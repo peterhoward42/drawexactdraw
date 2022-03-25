@@ -1,9 +1,20 @@
 <script>
+    /*
+    This component is the entry point to the entire App from a user's 
+    perspective. It is concerned primarily with forcing the user to identify
+    themselves via the Firebase federatated identity provider before we expsose
+    any more functionality. Besides which, we need to know who they are to decide
+    what to do next.
+    */
     import { getAnalytics } from "firebase/analytics";
     import firebase from "firebase/compat/app";
     import * as firebaseui from "firebaseui";
     import "firebaseui/dist/firebaseui.css";
 
+    import { handleSignInSuccess } from '../services/authorizedhandler.js'
+
+    // This object constant has to match exactly the config the firebase
+    // portal shows you for your project.
     const firebaseConfig = {
         apiKey: "AIzaSyBp4hWn1_e1ADqulCO1N5iWz5z54kTx1eo",
         authDomain: "drawexact.firebaseapp.com",
@@ -20,6 +31,13 @@
 
     var uiConfig = {
         signInSuccessUrl: "authorized",
+        signInFlow: "popup",
+        callbacks: {
+            signInSuccessWithAuthResult: handleSignInSuccess,
+            uiShown: function () {
+                console.log("XXXX auth ui shown callback fired")
+            },
+        },
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         // tosUrl and privacyPolicyUrl accept either url string or a callback
         // function.
@@ -34,16 +52,11 @@
 </script>
 
 <div>
-    <div>
-        This is sign in page header
-    </div>
+    <div>This is sign in page header</div>
 
-    <div id="firebaseui-auth-container">
-    </div>
+    <div id="firebaseui-auth-container" />
 
-    <div>
-        This is sign in page footer
-    </div>
+    <div>This is sign in page footer</div>
 </div>
 
 <style></style>
