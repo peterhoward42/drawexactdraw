@@ -1,11 +1,24 @@
 import page  from "page";
 
-// This function is provided as a callback to the firebaseui. It gets
-// called IFF the user successfully signs in.
+// This function is provided as the on-success callback to firebaseui. It gets
+// called IFF the user successfully signs in. It's role is to be the gate keeper
+// for further initialising the App when the user becomes known.
 export function handleSignInSuccess(authResult) {
     console.log("XXXX sign in callback fired with authResult: ", authResult)
-    // We do a client-side router psuedo-redirect now, so then have to
-    // return false to signal firebase ui that we're handling the redirect.
-    page("/authorized")
+    waitForWasmToBeReady().then(bootstrapWithKnownUser());
     return false;
+}
+
+async function waitForWasmToBeReady() {
+    console.log("XXXX arrived in waitForWasmToBeReady");
+    let myInterval = setInterval(async function () {
+        if (typeof msgBusPubString == "function") {
+            clearInterval(myInterval);
+            console.log("XXXX msgBusPubString has arrived");
+        }
+    }, 100);
+}
+
+async function bootstrapWithKnownUser() {
+    console.log("XXXX arrived in bootstrapWithKnownUser()")
 }

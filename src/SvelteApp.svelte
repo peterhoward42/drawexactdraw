@@ -8,7 +8,6 @@
 	import Drawing from "./pages/Drawing.svelte";
 	import TermsOfService from "./pages/TermsOfService.svelte";
 	import Home from "./pages/Home.svelte";
-	import Authorized from "./pages/Authorized.svelte";
 
 
     // To support the new session, we put a function into the global namespace,
@@ -17,7 +16,6 @@
 
 	// Specify routes and start the Router
 	page("/", () => $currentPage = SignIn)
-	page("/authorized", () => $currentPage = Authorized)
 	page("/home", () => $currentPage = Home)
 	page("/drawing", () => $currentPage = Drawing)
 	page("/tos", () => $currentPage = TermsOfService)

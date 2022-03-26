@@ -1,10 +1,10 @@
 <script>
     /*
-    This component is the entry point to the entire App from a user's 
-    perspective. It is concerned primarily with forcing the user to identify
-    themselves via the Firebase federatated identity provider before we expsose
-    any more functionality. Besides which, we need to know who they are to decide
-    what to do next.
+    This component is the landing page from the user's perspective, and has the
+    single responsibility to ask the user to identify and authenticate 
+    themselves (using  Firebase).
+    
+    It is the App's entry point gatekeeper.
     */
     import { getAnalytics } from "firebase/analytics";
     import firebase from "firebase/compat/app";
@@ -30,7 +30,7 @@
     var firebaseUi = new firebaseui.auth.AuthUI(firebase.auth());
 
     var uiConfig = {
-        signInSuccessUrl: "authorized",
+        signInSuccessUrl: "unused",
         signInFlow: "popup",
         callbacks: {
             signInSuccessWithAuthResult: handleSignInSuccess,
