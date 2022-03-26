@@ -4,9 +4,8 @@ import page  from "page";
 // called IFF the user successfully signs in.
 export function handleSignInSuccess(authResult) {
     console.log("XXXX sign in callback fired with authResult: ", authResult)
-    // Returning false tells the firebaseui UI that we DO NOT want *it* to mandate
-    // the browser to redirect to a different page. (We'll handle that ourselves).
-
+    // We do a client-side router psuedo-redirect now, so then have to
+    // return false to signal firebase ui that we're handling the redirect.
     page("/authorized")
     return false;
 }
