@@ -1,11 +1,26 @@
 <script>
-    import { onMount, tick } from "svelte";
+    /*
+    This component is the page that presents a drawing and lets the user
+    interact with it. It is this page that instantiates the "drawing" mode
+    DIV that the WASM module depends on. The WASM module is dependent from that
+    point onwards on that DIV being present, and for some communications between
+    WASM and javascript. Consequently, the javascript app must be designed to 
+    make reaching the /drawing page an irreversible journey.
+
+    N.b. the onMount handler below throws an exception if it gets called more
+    than once.
+    */
+    import { onMount } from "svelte";
 
     import { sideBarComponent } from "../cpts/sidebar/sidebarstore";
+    import { doOnMountOpsForDrawingPage } from "../services/drawingpageonmount";
 
     import ToolBar from "../cpts/toolbar/ToolBar.svelte";
     import SideBar from "../cpts/sidebar/SideBar.svelte";
     import AdviceModal from "../cpts/advice/advicemodal.svelte";
+
+    // We delegate the onMount initialization for this component to a helper.
+    onMount(async () => {doOnMountOpsForDrawingPage(sideBarComponent)});
 
 </script>
 

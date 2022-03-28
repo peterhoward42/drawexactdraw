@@ -1,5 +1,5 @@
 <script>
-	import page  from "page";
+	import page from "page";
 
     import { interpretMessage } from "./services/messageInterpreter.js";
 	import { currentPage } from "./pages/pagesstore.js"

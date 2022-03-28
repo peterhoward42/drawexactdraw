@@ -17,11 +17,9 @@ export function handleSignInSuccess(authResult) {
 // the WASM module is loaded and running, such that its msgBusPubString() function
 // is available in the javascript namespace.
 async function waitForWasmToBeReady() {
-    console.log("XXXX arrived in waitForWasmToBeReady");
     let myInterval = setInterval(async function () {
         if (typeof msgBusPubString == "function") {
             clearInterval(myInterval);
-            console.log("XXXX msgBusPubString has arrived");
         }
     }, 100);
 }
@@ -31,6 +29,6 @@ async function waitForWasmToBeReady() {
 // what UX the user will see next - but the javascript App is not opinionated
 // about that - (it waits for a a steer from WASM).
 async function bootstrapWithKnownUser(user) {
-    console.log("XXXX arrived in bootstrapWithKnownUser()")
+    console.log("XXXX (draw) bootstrapWithKnownUser()")
     msgBusPubString("ui:usersignedin", JSON.stringify(user))
 }

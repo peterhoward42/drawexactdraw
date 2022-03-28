@@ -11,7 +11,7 @@
     import * as firebaseui from "firebaseui";
     import "firebaseui/dist/firebaseui.css";
 
-    import { handleSignInSuccess } from '../services/authorizedhandler.js'
+    import { handleSignInSuccess } from '../services/handlelifecycle.js'
 
     // This object constant has to match exactly the config the firebase
     // portal shows you for your project.

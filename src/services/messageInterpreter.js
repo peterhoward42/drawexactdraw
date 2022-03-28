@@ -1,4 +1,5 @@
-import { tick } from 'svelte';
+import page from "page";
+
 
 import Paste from "../cpts/paste/Paste.svelte";
 
@@ -17,9 +18,12 @@ export async function interpretMessage(topic, payload) {
         case "advice":
             processArrivingAdvice(payload);
             break;
+        case "app:initializedrawingpage":
+            page("drawing")
+            break;
         case "customangle":
             customAngle.set(payload)
-            break;
+            break;  
         case "drawinginfo":
             drawingInfo.set(JSON.parse(payload));
             break;
