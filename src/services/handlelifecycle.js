@@ -17,7 +17,7 @@ export function handleSignInSuccess(authResult) {
 // the WASM module is loaded and running, such that its msgBusPubString() function
 // is available in the javascript namespace.
 async function waitForWasmToBeReady() {
-    let myInterval = setInterval(async function () {
+    let myInterval = setInterval(function () {
         if (typeof msgBusPubString == "function") {
             clearInterval(myInterval);
         }

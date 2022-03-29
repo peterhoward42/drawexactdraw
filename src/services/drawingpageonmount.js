@@ -19,7 +19,7 @@ export async function doOnMountOpsForDrawingPage(sideBarComponent) {
     alertWASMDrawingAreaChanged();
 
     // Tell the WASM module that the drawing page is now ready.
-    msgBusPubString("ui:drawingpageisready", nil)
+    msgBusPubString("ui:drawingpageisready", null)
 };
 
 // alertWASM calls alertWASMDrawingAreaChanged(), but waits for one svelte
