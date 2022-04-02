@@ -1,6 +1,3 @@
-import page from "page";
-
-
 import Paste from "../cpts/paste/Paste.svelte";
 
 import { rayLength, rayMode, readout, customAngle } from "../cpts/toolbar/toolbarstore.js";

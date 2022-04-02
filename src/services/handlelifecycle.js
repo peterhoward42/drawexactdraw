@@ -1,5 +1,3 @@
-import page from "page";
-
 // This function is provided as the on-success callback to firebaseui. It gets
 // called IFF the user successfully signs in. It's role is to be the gate keeper
 // for further initialising the App when the user becomes known.
