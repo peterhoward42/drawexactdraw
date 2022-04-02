@@ -10,6 +10,10 @@ import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menula
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
+import Drawing from "../pages/Drawing.svelte"
+
+import { currentPage } from "../pages/pagesstore.js"
+
 
 export async function interpretMessage(topic, payload) {
 
@@ -19,7 +23,7 @@ export async function interpretMessage(topic, payload) {
             processArrivingAdvice(payload);
             break;
         case "app:initializedrawingpage":
-            page("drawing")
+            currentPage.set(Drawing)
             break;
         case "customangle":
             customAngle.set(payload)

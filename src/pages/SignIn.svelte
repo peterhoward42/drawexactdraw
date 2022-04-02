@@ -2,7 +2,7 @@
     /*
     This component is the landing page from the user's perspective, and has the
     single responsibility to ask the user to identify and authenticate 
-    themselves (using  Firebase).
+    themselves (using Firebase).
     
     It is the App's entry point gatekeeper.
     */
