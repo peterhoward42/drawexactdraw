@@ -1,10 +1,11 @@
-import App from './App.svelte';
+import SvelteApp from './SvelteApp.svelte';
 
-const app = new App({
+console.log("XXXX main.js fired")
+
+const svelteApp = new SvelteApp({
 	target: document.body,
 	props: {
-		name: 'world'
 	}
 });
 
-export default (app);
+export default (svelteApp);

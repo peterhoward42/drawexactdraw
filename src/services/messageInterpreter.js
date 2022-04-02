@@ -1,4 +1,5 @@
-import { tick } from 'svelte';
+import page from "page";
+
 
 import Paste from "../cpts/paste/Paste.svelte";
 
@@ -9,6 +10,10 @@ import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menula
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
+import Drawing from "../pages/Drawing.svelte"
+
+import { currentPage } from "../pages/pagesstore.js"
+
 
 export async function interpretMessage(topic, payload) {
 
@@ -17,9 +22,12 @@ export async function interpretMessage(topic, payload) {
         case "advice":
             processArrivingAdvice(payload);
             break;
+        case "app:initializedrawingpage":
+            currentPage.set(Drawing)
+            break;
         case "customangle":
             customAngle.set(payload)
-            break;
+            break;  
         case "drawinginfo":
             drawingInfo.set(JSON.parse(payload));
             break;

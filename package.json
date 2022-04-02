@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --single --no-clear"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -19,6 +19,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "firebase": "^9.6.8",
+    "firebaseui": "^6.0.1",
+    "page": "^1.11.6",
     "sirv-cli": "^1.0.0",
     "tippy.js": "^6.3.7"
   }
