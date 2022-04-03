@@ -12,14 +12,13 @@ export function handleSignInSuccess(authResult) {
 }
 
 // waitForWasmToBeReady loops at 100ms intervals until such time as
-// the WASM module is loaded and running, such that its msgBusPubString() function
-// is available in the javascript namespace.
-async function waitForWasmToBeReady() {
-    let myInterval = setInterval(function () {
-        if (typeof msgBusPubString == "function") {
-            clearInterval(myInterval);
-        }
-    }, 100);
+// the WASM module can be inferred to be loaded and running, by looking to
+// see if window.msgBusPubString() has become a function yet.
+// It returns the messaging function.
+export function waitForWasmToBeReady() {
+    while (typeof msgBusPubString != "function") {
+        ;
+    }
 }
 
 // bootstrapWithKnownUser knows how to tell the WASM module that the
