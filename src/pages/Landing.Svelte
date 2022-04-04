@@ -3,7 +3,6 @@
     This component is the landing page for the App.
     */
     import { onMount } from "svelte";
-    import { waitForWasmToBeReady } from "../services/handlelifecycle";
 
     onMount(() => {
         const interval = setInterval(function () {

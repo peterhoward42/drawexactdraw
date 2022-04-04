@@ -7,18 +7,8 @@ export function handleSignInSuccess(authResult) {
         "displayName": authResult.user.displayName,
         "firebaseAccessToken": authResult.credential.accessToken,
     }
-    waitForWasmToBeReady().then(bootstrapWithKnownUser(user));
+    bootstrapWithKnownUser(user);
     return false;
-}
-
-// waitForWasmToBeReady loops at 100ms intervals until such time as
-// the WASM module can be inferred to be loaded and running, by looking to
-// see if window.msgBusPubString() has become a function yet.
-// It returns the messaging function.
-export function waitForWasmToBeReady() {
-    while (typeof msgBusPubString != "function") {
-        ;
-    }
 }
 
 // bootstrapWithKnownUser knows how to tell the WASM module that the

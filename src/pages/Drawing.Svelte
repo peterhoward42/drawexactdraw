@@ -5,10 +5,7 @@
     DIV that the WASM module depends on. The WASM module is dependent from that
     point onwards on that DIV being present, and for some communications between
     WASM and javascript. Consequently, the javascript app must be designed to 
-    make reaching the /drawing page an irreversible journey.
-
-    N.b. the onMount handler below throws an exception if it gets called more
-    than once.
+    prevent the any subsequent changes to the main page component presented.
     */
     import { onMount } from "svelte";
 

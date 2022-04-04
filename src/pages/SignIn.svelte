@@ -10,8 +10,9 @@
     import firebase from "firebase/compat/app";
     import * as firebaseui from "firebaseui";
     import "firebaseui/dist/firebaseui.css";
+    import { tick, onMount } from "svelte";
 
-    import { handleSignInSuccess } from '../services/handlelifecycle.js'
+    import { handleSignInSuccess } from "../services/handlelifecycle.js";
 
     // This object constant has to match exactly the config the firebase
     // portal shows you for your project.
@@ -35,7 +36,7 @@
         callbacks: {
             signInSuccessWithAuthResult: handleSignInSuccess,
             uiShown: function () {
-                console.log("XXXX auth ui shown callback fired")
+                console.log("XXXX auth ui shown callback fired");
             },
         },
         signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
@@ -47,8 +48,10 @@
         },
     };
 
-    // The start method will wait until the DOM is loaded.
-    firebaseUi.start("#firebaseui-auth-container", uiConfig);
+    onMount(() => {
+        tick();
+        firebaseUi.start("#firebaseui-auth-container", uiConfig);
+    });
 </script>
 
 <div>
