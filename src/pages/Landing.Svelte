@@ -8,8 +8,8 @@
         const interval = setInterval(function () {
             if (typeof msgBusPubString == "function") {
                 clearInterval(interval);
-                console.log("XXXX sending booted")
-                msgBusPubString("ui:isbooted", "");
+                console.log("XXXX sending booted");
+                msgBusPubString("ui:landingpageready", "");
             }
         }, 100);
     });
