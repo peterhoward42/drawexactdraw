@@ -1,4 +1,7 @@
-import Paste from "../cpts/paste/Paste.svelte";
+/*
+This module is the point of entry for all the messages that the WASM
+module sends to the UI.
+*/
 
 import { rayLength, rayMode, readout, customAngle } from "../cpts/toolbar/toolbarstore.js";
 import { processArrivingAdvice } from '../cpts/advice/controller.js'
@@ -8,11 +11,11 @@ import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
 import { processSave } from "../services/save.js"
-import Drawing from "../pages/Drawing.svelte"
-import SignIn from "../pages/SignIn.svelte"
-
 import { currentPage } from "../pages/pagesstore.js"
 
+import Drawing from "../pages/Drawing.svelte"
+import SignIn from "../pages/SignIn.svelte"
+import Paste from "../cpts/paste/Paste.svelte";
 
 export async function interpretMessage(topic, payload) {
 
