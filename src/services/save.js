@@ -1,33 +1,28 @@
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, uploadString } from "firebase/storage";
 import { firebaseApp } from "../firebase/store.js"
+import { asyncCallWithTimeout } from "./asynctimeout.js"
 import { get } from "svelte/store";
 
 import md5 from "md5"
 
-export function processSave(payload) {
+export function handleDrawingSaveMandate(payload) {
     console.log("XXXX ui handling save")
 
-    let saveDetails
-    saveDetails = JSON.parse(payload)
-    console.log("XXXX saveDetails: ", saveDetails)
+    const saveDetails = JSON.parse(payload)
+    const firebaseStorage = getStorage(get(firebaseApp));
+    const storageRef = ref(firebaseStorage, makeDrawingPath(saveDetails.userEmail, saveDetails.drawingName));
 
-    const storage = getStorage(get(firebaseApp));
-    console.log("XXXX storage object: ", storage)
-
-    const drawingPath = makeDrawingPath(saveDetails.userEmail, saveDetails.drawingName)
-    console.log("XXXX drawingPath: ", drawingPath)
-    const storageRef = ref(storage, drawingPath);
-
-    const dwg = saveDetails.serializedDrawingBase64Enc;
-    console.log("XXXX len of dwg: ", dwg.length);
-    console.log("XXXX dwg is: ", dwg);
-    const drawingBlob = new Blob([saveDetails.serializedDrawingBase64Enc]);
-    console.log("XXXX blob is: ", drawingBlob);
-
-    // make a file from the serialized drawing
-    // uploadBytes(storageRef, file).then((snapshot) => {
-    //     console.log('Uploaded a blob or file!');
-    //   });
+    const uploadFunction = uploadString(storageRef, saveDetails.serializedDrawingBase64Enc);
+    const saveTimeOut = 1000;
+    const uploadWithTimeout = async () => {
+        try {
+            const { okResponse } = await asyncCallWithTimeout(uploadFunction, saveTimeOut);
+        }
+        catch (err) {
+            console.log("XXXX timeout response: ", err);
+        }
+    }
+    uploadWithTimeout();
 }
 
 function makeDrawingPath(email, drawingName) {

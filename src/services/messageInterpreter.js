@@ -10,7 +10,7 @@ import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menula
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
-import { processSave } from "../services/save.js"
+import { handleDrawingSaveMandate } from "../services/save.js"
 import { currentPage } from "../pages/pagesstore.js"
 
 import Drawing from "../pages/Drawing.svelte"
@@ -59,7 +59,7 @@ export async function interpretMessage(topic, payload) {
             readout.set(JSON.parse(payload))
             break;
         case "save":
-            processSave(payload);
+            handleDrawingSaveMandate(payload);
         case "usertransformmalformed":
             processUserTransformsMalformed(payload)
             break;
