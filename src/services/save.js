@@ -1,11 +1,9 @@
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import firebase from "firebase/compat/app";
 
 // We access the firebase app from a shared store.
 import { firebaseApp } from "../firebase/store.js"
 import { get } from "svelte/store";
-
-import md5 from "md5"
-
 
 const timeoutInMilliseconds = 1000;
 
@@ -17,8 +15,11 @@ export function saveSerializedDrawing(payload) {
 
     const saveDetails = JSON.parse(payload)
     const firebaseStorage = getStorage(get(firebaseApp));
-    // The bucket storage path is composed from the user's email and drawing name.
-    const storageRef = ref(firebaseStorage, makeDrawingPath(saveDetails.userEmail, saveDetails.drawingName));
+    
+    // The bucket storage path is composed from the user's UID and the drawing name.
+    const path = makeDrawingPath(saveDetails.drawingName);
+    const storageRef = ref(firebaseStorage, path);
+    console.log("XXXX path: ", path);
 
     const serializedDrawingAsBlob = new Blob([saveDetails.serializedDrawingBase64Enc]);
 
@@ -70,11 +71,11 @@ export function saveSerializedDrawing(payload) {
     );
 }
 
-// makeDrawingPath composes an address of this form: <hashedEmail/drawings/<name of drawing>
-function makeDrawingPath(email, drawingName) {
-    // For the user id part of the path, we use the md5 digest of the
-    // user's email address, formatted as hex.
-    const emailDigestAsHexString = md5(email)
-    const path = ["drawings", emailDigestAsHexString, drawingName].join("/")
+// makeDrawingPath composes an address of this form: "user/<UID>/drawings/<name of drawing> .
+// It is not a free choice... This form is supported as a well known pattern
+// for the Firebase Storage security rules config.
+function makeDrawingPath(drawingName) {
+    const uid = firebase.auth().currentUser.uid;
+    const path = 'user/' + uid  + '/drawings/' + drawingName
     return path
 }

@@ -2,10 +2,10 @@
 // called IFF the user successfully signs in. It's role is to be the gate keeper
 // for further initialising the App when the user becomes known.
 export function handleSignInSuccess(authResult) {
-    var user = {
-        "email": authResult.user.email,
+    console.log("XXXX raw authResult: ", authResult)
+    const user = {
         "displayName": authResult.user.displayName,
-        "firebaseAccessToken": authResult.credential.accessToken,
+        "uid": authResult.user.uid,
     }
     bootstrapWithKnownUser(user);
     return false;
@@ -16,6 +16,7 @@ export function handleSignInSuccess(authResult) {
 // what UX the user will see next - but the javascript App is not opinionated
 // about that - (it waits for a a steer from WASM).
 async function bootstrapWithKnownUser(user) {
-    console.log("XXXX (draw) bootstrapWithKnownUser()")
-    msgBusPubString("ui:usersignedin", JSON.stringify(user))
+    const asJson = JSON.stringify(user)
+    console.log("XXXX (draw) bootstrapWithKnownUser(): %s", asJson)
+    msgBusPubString("ui:usersignedin", asJson)
 }
