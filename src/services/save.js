@@ -1,31 +1,45 @@
-import { getStorage, ref, uploadString, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+// We access the firebase app from a shared store.
 import { firebaseApp } from "../firebase/store.js"
-import { asyncCallWithTimeout } from "./asynctimeout.js"
 import { get } from "svelte/store";
 
 import md5 from "md5"
 
-export function handleDrawingSaveMandate(payload) {
+
+const timeoutInMilliseconds = 1000;
+
+// saveSerializedDrawing extracts the drawing name, and the serialized
+// drawing bytes from the given payload and uses Firebase Cloud Storage (bucket),
+// to save it.
+export function saveSerializedDrawing(payload) {
     console.log("XXXX ui handling save")
 
     const saveDetails = JSON.parse(payload)
     const firebaseStorage = getStorage(get(firebaseApp));
+    // The bucket storage path is composed from the user's email and drawing name.
     const storageRef = ref(firebaseStorage, makeDrawingPath(saveDetails.userEmail, saveDetails.drawingName));
+
     const serializedDrawingAsBlob = new Blob([saveDetails.serializedDrawingBase64Enc]);
+
+    // Launch the upload asynchronously.
     const uploadTask = uploadBytesResumable(storageRef, serializedDrawingAsBlob);
 
+    // The Firebase service responds to errors by retrying (internally), but
+    // for our use case we prefer to reveal an error and stop after a short timeout.
+    let uploadComplete = false
+    setTimeout(() => {
+        console.log("XXXX timeout fired");
+        if (!uploadComplete) {
+            console.log("XXXX upload not complete - so killing it")
+            uploadTask.cancel(); // Todo: emit error info here.
+        }
+    }, timeoutInMilliseconds)
+
+    // Observe the progress of the upload...
     uploadTask.on('state_changed',
         (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('XXXX Upload is ' + progress + '% done');
-            switch (snapshot.state) {
-                case 'paused':
-                    console.log('XXXX Upload is paused');
-                    break;
-                case 'running':
-                    console.log('XXXX Upload is running');
-                    break;
-            }
+            // Can measure paused/resumed/bytes-transferred here.
         },
         (error) => {
             // A full list of error codes is available at
@@ -36,37 +50,27 @@ export function handleDrawingSaveMandate(payload) {
                     console.log('XXXX Errored unauthorized');
                     break;
                 case 'storage/canceled':
-                    // User canceled the upload
-                    console.log('XXXX Errored user-cancelled');
+                    // Our save timeout fired.
+                    console.log('XXXX Catching timeout fired');
                     break;
 
                 case 'storage/unknown':
                     // Unknown error occurred, inspect error.serverResponse
-                    console.log('XXXX Other errored code: ',  error.code)
+                    console.log('XXXX Other errored code: ', error.code)
                     break;
             }
         },
         () => {
-            // Upload completed successfully, now we can get the download URL
+            // Upload completed successfully, now we could get the download URL
+            uploadComplete = true;
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 console.log('XXXX Save ok, file available at', downloadURL);
             });
         }
     );
-
-    //const uploadFunction = uploadString(storageRef, saveDetails.serializedDrawingBase64Enc);
-    // const saveTimeOut = 1000;
-    // const uploadWithTimeout = async () => {
-    //     try {
-    //         const { okResponse } = await asyncCallWithTimeout(uploadFunction, saveTimeOut);
-    //     }
-    //     catch (err) {
-    //         console.log("XXXX timeout response: ", err);
-    //     }
-    // }
-    // uploadWithTimeout();
 }
 
+// makeDrawingPath composes an address of this form: <hashedEmail/drawings/<name of drawing>
 function makeDrawingPath(email, drawingName) {
     // For the user id part of the path, we use the md5 digest of the
     // user's email address, formatted as hex.
