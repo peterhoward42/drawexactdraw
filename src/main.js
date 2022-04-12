@@ -1,14 +1,11 @@
-import firebase from "firebase/compat/app";
 import SvelteApp from './SvelteApp.svelte';
-import { firebaseConfig } from './firebase/config.js'
-import { firebaseApp } from "./firebase/store.js"
+
+// This import creates (as a side effect) a single, module-scoped bundle of integrated
+// firebase services including: the FirebaseApp, Storage, and Authorization.
+// And exposes some API functions to use them.
+import './firebase/initialize.js'
 
 console.log("XXXX main.js fired")
-
-// We want a globally available single instance of the
-// initialised Firebase App - because Firebase is used both for
-// user identification/authentication, and for drawing storage and retreival.
-firebaseApp.set(firebase.initializeApp(firebaseConfig));
 
 const svelteApp = new SvelteApp({
 	target: document.body,
