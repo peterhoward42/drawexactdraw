@@ -1,16 +1,14 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { firebaseAuth, firebaseStorage } from "./store.js"
+import { get } from 'svelte/store';
 
-// saveDrawingInternal is the implementation for the saveDrawing function
-// in ./initilize.js. It must only be called when the Firebase user is signed in.
-export function saveDrawingInternal(
-    drawingName,
-    serializedDrawingAsBlob,
-    auth,
-    firebaseStorage,
-) {
+// saveDrawing uploads the given drawing to Firebase Storage.
+export function saveDrawing(drawingName, serializedDrawingAsBlob) {
+    const auth = get(firebaseAuth)
     const uid = auth.currentUser.uid;
     const path = 'user/' + uid  + '/drawings/' + drawingName
-    const storageRef = ref(firebaseStorage, path);
+    const storage = get(firebaseStorage)
+    const storageRef = ref(storage, path);
     const uploadTask = uploadBytesResumable(storageRef, serializedDrawingAsBlob); // Async.
     // The Firebase service responds to errors by retrying (internally), but
     // for our use case we prefer to reveal an error and stop after a short timeout.

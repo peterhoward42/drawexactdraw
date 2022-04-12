@@ -1,4 +1,4 @@
-import { saveDrawing } from "../firebase/initialize";
+import { saveDrawing } from "../firebase/savedrawing";
 
 // saveSerializedDrawing extracts the drawing name, and the serialized
 // drawing bytes from the given payload and uses Firebase Cloud Storage (bucket),

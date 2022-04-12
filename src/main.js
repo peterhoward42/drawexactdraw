@@ -1,9 +1,7 @@
 import SvelteApp from './SvelteApp.svelte';
+import { composeAndExposeFirebaseComponents } from './firebase/store.js'
 
-// This import creates (as a side effect) a single, module-scoped bundle of integrated
-// firebase services including: the FirebaseApp, Storage, and Authorization.
-// And exposes some API functions to use them.
-import './firebase/initialize.js'
+composeAndExposeFirebaseComponents()
 
 console.log("XXXX main.js fired")
 

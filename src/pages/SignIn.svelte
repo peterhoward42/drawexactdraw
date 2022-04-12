@@ -1,5 +1,5 @@
 <script>
-    import { startAuthUi } from '../firebase/initialize.js'
+    import { startFirebaseAuthUi } from '../firebase/ui.js'
 
     // This component presents and manages the user sign-in UI.
     
@@ -7,7 +7,7 @@
 
     onMount(() => {
         tick();
-        startAuthUi();
+        startFirebaseAuthUi();
     });
 </script>
 
