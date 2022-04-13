@@ -2,14 +2,14 @@
     import { interpretMessage } from "./services/messageInterpreter.js";
 	import { currentPage } from "./pages/pagesstore.js"
 
-	import Landing from "./pages/Landing.svelte";
+	import Home from "./pages/Home.svelte";
 
     // To support the new session, we put a function into the global namespace,
     // that WASM can call in order to send messages to javascript.
     window.receiveMsgFromWasm = interpretMessage;
 
 	// Universal entry point is to show the sign-in component.
-	$currentPage = Landing
+	$currentPage = Home
 
 </script>
 

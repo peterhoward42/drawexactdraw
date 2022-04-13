@@ -1,9 +1,10 @@
 <script>
+    import GoToDrawingsBtn from "../cpts/home/GoToDrawingsBtn.svelte";
 </script>
 
 <div>
-    Home Placeholder
+    <GoToDrawingsBtn />
 </div>
 
-<style> 
+<style>
 </style>
