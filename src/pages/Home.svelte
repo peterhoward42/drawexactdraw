@@ -3,6 +3,7 @@
 </script>
 
 <div>
+    <p>This is the home page</p>
     <GoToDrawingsBtn />
 </div>
 
