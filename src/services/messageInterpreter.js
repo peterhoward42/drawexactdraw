@@ -1,4 +1,7 @@
-import Paste from "../cpts/paste/Paste.svelte";
+/*
+This module is the point of entry for all the messages that the WASM
+module sends to the UI.
+*/
 
 import { rayLength, rayMode, readout, customAngle } from "../cpts/toolbar/toolbarstore.js";
 import { processArrivingAdvice } from '../cpts/advice/controller.js'
@@ -7,11 +10,12 @@ import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menula
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
-import Drawing from "../pages/Drawing.svelte"
-import SignIn from "../pages/SignIn.svelte"
-
+import { saveSerializedDrawing } from "../services/save.js"
 import { currentPage } from "../pages/pagesstore.js"
 
+import Drawing from "../pages/Drawing.svelte"
+import SignIn from "../pages/SignIn.svelte"
+import Paste from "../cpts/paste/Paste.svelte";
 
 export async function interpretMessage(topic, payload) {
 
@@ -28,7 +32,7 @@ export async function interpretMessage(topic, payload) {
             break;
         case "customangle":
             customAngle.set(payload)
-            break;  
+            break;
         case "drawinginfo":
             drawingInfo.set(JSON.parse(payload));
             break;
@@ -54,6 +58,8 @@ export async function interpretMessage(topic, payload) {
         case "readout":
             readout.set(JSON.parse(payload))
             break;
+        case "save":
+            saveSerializedDrawing(payload);
         case "usertransformmalformed":
             processUserTransformsMalformed(payload)
             break;
