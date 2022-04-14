@@ -10,7 +10,7 @@ import { bringUpLineStyleMenu, bringUpParaMenu } from '../cpts/properties/menula
 import { sideBarComponent } from "../cpts/sidebar/sidebarstore.js"
 import { sideBarTitle } from "../cpts/sidebar/sidebarstore.js"
 import { drawingInfo } from "../cpts/menu/menustore.js"
-import { saveSerializedDrawing } from "../services/save.js"
+import { saveSerializedDrawing } from "./drawingio.js"
 import { currentPage } from "../pages/pagesstore.js"
 
 import Drawing from "../pages/Drawing.svelte"

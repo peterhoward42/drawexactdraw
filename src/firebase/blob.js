@@ -1,10 +1,15 @@
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+/*
+The functions in this module are DRY helpers that either save or retreive
+a Blog from a given path in Firebase storage.
+*/
+
+import { ref, uploadBytesResumable, getDownloadURL, getBlob } from "firebase/storage";
 import { firebaseStorage } from "./store.js"
 import { get } from 'svelte/store';
 
 // uploadBlob uploads the given blob to Firebase Storage on behalf of the 
 // signed-in user, at the given path.
-// It is asynchronous.
+// Its internal implementation is asynchronous.
 export function uploadBlob(path, blob) {
     const storage = get(firebaseStorage)
     const storageRef = ref(storage, path);
@@ -53,4 +58,13 @@ export function uploadBlob(path, blob) {
             });
         }
     );
+}
+
+// retreiveBlob fetches (asyncronously) the object stored at the given path (which it expects
+// to be a blob).
+export async function retreiveBlob(path) {
+    const storage = get(firebaseStorage)
+    const storageRef = ref(storage, path);
+    blob = await getBlob(storageRef)
+    return blob
 }
