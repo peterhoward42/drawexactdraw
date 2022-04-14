@@ -20,6 +20,7 @@ export function saveDrawing(drawingName, serializedDrawingAsBlob) {
     const uid = auth.currentUser.uid;
     const path = assembleDrawingPath(uid, drawingName)
     uploadBlob(path, serializedDrawingAsBlob)
+    updateDrawingNameIndex(drawingName)
 }
 
 // retreiveDrawing retreives (asynchronously) the drawing of the given name,
@@ -54,11 +55,46 @@ export async function retreiveCurrentDrawingName() {
     return drawingName
 }
 
+// saveDrawingNameIndex uploads the given drawing index (map[string]bool) to Firebase storage,
+// on behalf of the signed in user.
+async function saveDrawingNameIndex(theIndex) {
+    const auth = get(firebaseAuth)
+    const uid = auth.currentUser.uid;
+    const path = assembleIndexPath(uid)
+    const blob = new Blob([theIndex])
+    uploadBlob(path, blob)
+}
+
+// getDrawingNameIndex retreives the existing drawing name index for the currently
+// signed-in user. (A javascript map[string]bool).
+async function getDrawingNameIndex() {
+    const auth = get(firebaseAuth)
+    const uid = auth.currentUser.uid;
+    const path = assembleIndexPath(uid)
+    const blob = await retreiveBlob(path)
+    const drawingIndex = await new Response(blob).json()
+    return drawingIndex
+}
+
+// updateDrawingNameIndex adds the given drawing name to the signed-in user's
+// drawing name index, and saves it to Firebase.
+async function updateDrawingNameIndex(newDrawingName) {
+    const index = await getDrawingNameIndex()
+    index[newDrawingName] = true
+    const blob = new Blob([index])
+    uploadBlob(path, blob)
+}
+
 function assembleDrawingPath(uid, drawingName) {
     return 'user/' + uid  + '/drawings/' + drawingName
 }
 
 function assembleCurrentPath(uid) {
-    const path = 'user/' + uid + '/currentdrawing/'
+    const path = 'user/' + uid + '/currentdrawing'
+    return path
+}
+
+function assembleIndexPath(uid) {
+    const path = 'user/' + uid + '/index'
     return path
 }
