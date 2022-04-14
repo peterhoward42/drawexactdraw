@@ -1,7 +1,7 @@
 <script>
     import Link from "../common/Link.svelte";
-    import { isThereAUserSignedIn } from "../firebase/user"
-    import { switchToDrawingModeAndBringUpUsersCurrentDrawing } from "../services/bringupdrawing"
+    import { isThereAUserSignedIn } from "../../firebase/user"
+    import { switchToDrawingModeAndBringUpUsersCurrentDrawing } from "../../services/bringupdrawing"
 
     function handleGoToDrawings() {
         console.log("XXXX handleGoToDrawins() fired");

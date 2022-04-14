@@ -1,4 +1,3 @@
-import { switchToDrawingModeAndBringUpUsersCurrentDrawing } from "./enterdrawingmode"
 import { retreiveCurrentDrawing } from "./drawingio"
 
 // switchToDrawingModeAndBringUpUsersCurrentDrawing is a DRY helper that first
